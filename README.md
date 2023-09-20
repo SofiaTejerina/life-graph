@@ -1,3 +1,4 @@
 # life-graph
 
-![Proyecto - Lifegraph](https://github.com/SofiaTejerina/life-graph/assets/49005593/dee48a3e-753d-480f-90be-c8555be7fec8)
+
+<img width="530" alt="Screenshot 2023-09-19 at 23 27 22" src="https://github.com/SofiaTejerina/life-graph/assets/49005593/dc12abc6-6a02-440e-aaf0-f432d3232929">
