@@ -1,0 +1,85 @@
+[
+  {
+    "id": "1",
+    "type": "simpleNode",
+    "position": { "x": 250, "y": 0 },
+    "data": {
+      "props": {
+        "title": "Piano",
+        "data": { "progress": "3 meses", "time": "10 meses", "money": "10USD" }
+      }
+    }
+  },
+
+  {
+    "id": "2",
+    "type": "simpleNode",
+    "position": { "x": 250, "y": 0 },
+    "data": {
+      "props": {
+        "title": "Leer",
+        "data": { "progress": "2 libros", "time": "1 año", "money": "0USD" }
+      }
+    }
+  },
+  {
+    "id": "3",
+    "type": "groupNode",
+    "position": { "x": 250, "y": 0 },
+    "data": {
+      "props": {
+        "title": "Idiomas",
+        "data": [
+          {
+            "props": {
+              "id": 1,
+              "title": "Inglés",
+              "data": {
+                "progress": "B2",
+                "time": "1 año",
+                "money": "2.000UYU"
+              }
+            }
+          },
+          {
+            "props": {
+              "id": 2,
+              "title": "Frances",
+              "data": {
+                "progress": "Junior",
+                "time": "2 años",
+                "money": "0UYU"
+              }
+            }
+          },
+          {
+            "props": {
+              "id": 3,
+              "title": "Chino",
+              "data": {
+                "progress": "-",
+                "time": "3 años",
+                "money": "0UYU"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "4",
+    "type": "simpleNode",
+    "position": { "x": 250, "y": 0 },
+    "data": {
+      "props": {
+        "title": "Viajar",
+        "data": {
+          "progress": "5 paises",
+          "time": "4 semanas",
+          "money": "6.000USD"
+        }
+      }
+    }
+  }
+]
