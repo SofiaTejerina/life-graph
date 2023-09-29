@@ -1,8 +1,27 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.left-side-component {
+  width: 30%;
+  float: left;
+}
+.right-side-component {
+  float: left;
+}
+
+#board-root {
+  width: 70%;
+  height: 100%;
+}
+
+.left-side-component {
+  float: left;
+}
+
+.right-side-component {
+  float: left;
 }
 
 .logo {
