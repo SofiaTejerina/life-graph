@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import ReactFlow, {
   addEdge,
   MiniMap,
@@ -14,42 +14,11 @@ import SimpleNode from "./SimpleNode";
 import GroupNode from "./GroupNode";
 
 import goalsData from "../database/goals.json";
+import { GoalContext } from "../contexts/GoalGontext";
 
 const minimapStyle = {
   height: 120,
 };
-
-const initialGoal = {
-  title: "Holitas",
-};
-
-const initialNodes = [
-  {
-    id: "1",
-    type: "simpleNode",
-    position: { x: 250, y: 0 },
-    data: initialGoal,
-  },
-
-  {
-    id: "2",
-    type: "simpleNode",
-    position: { x: 100, y: 100 },
-    data: initialGoal,
-  },
-  {
-    id: "5",
-    type: "groupNode",
-    position: { x: 600, y: 400 },
-    data: initialGoal,
-  },
-  {
-    id: "8",
-    type: "groupNode",
-    position: { x: 200, y: 400 },
-    data: initialGoal,
-  },
-];
 
 const initialEdges = [];
 
@@ -67,6 +36,8 @@ const GoalBoard = () => {
     []
   );
 
+  const { currentGoal, setCurrentGoal } = useContext(GoalContext);
+
   return (
     <ReactFlow
       nodes={nodes}
@@ -74,6 +45,9 @@ const GoalBoard = () => {
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
+      onNodeClick={(event, node) => {
+        setCurrentGoal(node);
+      }}
       fitView
       attributionPosition="top-right"
       nodeTypes={nodeTypes}
