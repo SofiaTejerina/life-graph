@@ -7,10 +7,10 @@ const GoalSideBar = () => {
   if (currentGoal) {
     return (
       <div>
-        <div>{currentGoal.data.props.title}</div>
-        <div>{currentGoal.data.props.data.progress}</div>
-        <div>{currentGoal.data.props.data.time}</div>
-        <div>{currentGoal.data.props.data.money}</div>
+        <div>{currentGoal.title}</div>
+        <div>{currentGoal.data.progress}</div>
+        <div>{currentGoal.data.time}</div>
+        <div>{currentGoal.data.money}</div>
       </div>
     );
   } else {

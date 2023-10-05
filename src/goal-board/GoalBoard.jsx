@@ -6,6 +6,7 @@ import ReactFlow, {
   Background,
   useNodesState,
   useEdgesState,
+  ReactFlowProvider,
 } from "reactflow";
 import "reactflow/dist/style.css";
 
@@ -14,7 +15,6 @@ import SimpleNode from "./SimpleNode";
 import GroupNode from "./GroupNode";
 
 import goalsData from "../database/goals.json";
-import { GoalContext } from "../contexts/GoalGontext";
 
 const minimapStyle = {
   height: 120,
@@ -36,26 +36,23 @@ const GoalBoard = () => {
     []
   );
 
-  const { currentGoal, setCurrentGoal } = useContext(GoalContext);
-
   return (
-    <ReactFlow
-      nodes={nodes}
-      edges={edges}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
-      onConnect={onConnect}
-      onNodeClick={(event, node) => {
-        setCurrentGoal(node);
-      }}
-      fitView
-      attributionPosition="top-right"
-      nodeTypes={nodeTypes}
-    >
-      <MiniMap style={minimapStyle} zoomable pannable />
-      <Controls />
-      <Background color="#aaa" gap={16} />
-    </ReactFlow>
+    <ReactFlowProvider>
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+        fitView
+        attributionPosition="top-right"
+        nodeTypes={nodeTypes}
+      >
+        <MiniMap style={minimapStyle} zoomable pannable />
+        <Controls />
+        <Background color="#aaa" gap={16} />
+      </ReactFlow>
+    </ReactFlowProvider>
   );
 };
 
