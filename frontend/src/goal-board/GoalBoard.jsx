@@ -14,13 +14,13 @@ import "./baseNode.css";
 import SimpleNode from "./SimpleNode";
 import GroupNode from "./GroupNode";
 
-import goalsData from "../database/goals.json";
+import initialNodes from "../database/nodes.json";
+import initialEdges from "../database/edges.json";
 
 const minimapStyle = {
   height: 120,
 };
 
-const initialEdges = [];
 
 const nodeTypes = {
   simpleNode: SimpleNode,
@@ -28,7 +28,7 @@ const nodeTypes = {
 };
 
 const GoalBoard = () => {
-  const [nodes, setNodes, onNodesChange] = useNodesState(goalsData);
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const onConnect = useCallback(
