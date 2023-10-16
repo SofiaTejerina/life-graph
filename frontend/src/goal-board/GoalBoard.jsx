@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect } from "react";
+import React, { useCallback, useContext } from "react";
 import ReactFlow, {
   addEdge,
   MiniMap,
@@ -24,14 +24,8 @@ const nodeTypes = {
 };
 
 const GoalBoard = () => {
-  const {
-    nodes,
-    setNodes,
-    updateNodesChange,
-    edges,
-    setEdges,
-    updateEdgesChange,
-  } = useContext(InformationContext);
+  const { nodes, setNodes, onNodesChange, edges, setEdges, onEdgesChange } =
+    useContext(InformationContext);
 
   const onConnect = useCallback((params) => {
     setEdges((eds) => addEdge(params, eds)), [];
@@ -42,8 +36,8 @@ const GoalBoard = () => {
       <ReactFlow
         nodes={nodes}
         edges={edges}
-        onNodesChange={updateNodesChange}
-        onEdgesChange={updateEdgesChange}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         fitView
         attributionPosition="top-right"

@@ -11,18 +11,18 @@ import initialEdges from "./database/edges.json";
 
 function App() {
   const [currentGoal, setCurrentGoal] = useState();
-  const [nodes, setNodes, updateNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, updateEdgesChange] = useEdgesState(initialEdges);
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   return (
     <InformationContext.Provider
       value={{
         nodes,
         setNodes,
-        updateNodesChange,
+        onNodesChange,
         edges,
         setEdges,
-        updateEdgesChange,
+        onEdgesChange,
       }}
     >
       <GoalContext.Provider value={{ currentGoal, setCurrentGoal }}>
