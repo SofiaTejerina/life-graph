@@ -1,11 +1,9 @@
-import React, { useCallback, useContext } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import ReactFlow, {
   addEdge,
   MiniMap,
   Controls,
   Background,
-  useNodesState,
-  useEdgesState,
   ReactFlowProvider,
 } from "reactflow";
 import "reactflow/dist/style.css";
@@ -14,13 +12,11 @@ import "./baseNode.css";
 import SimpleNode from "./SimpleNode";
 import GroupNode from "./GroupNode";
 
-import initialNodes from "../database/nodes.json";
-import initialEdges from "../database/edges.json";
+import { InformationContext } from "../contexts/InformationContext";
 
 const minimapStyle = {
   height: 120,
 };
-
 
 const nodeTypes = {
   simpleNode: SimpleNode,
@@ -28,21 +24,26 @@ const nodeTypes = {
 };
 
 const GoalBoard = () => {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const {
+    nodes,
+    setNodes,
+    updateNodesChange,
+    edges,
+    setEdges,
+    updateEdgesChange,
+  } = useContext(InformationContext);
 
-  const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
-    []
-  );
+  const onConnect = useCallback((params) => {
+    setEdges((eds) => addEdge(params, eds)), [];
+  });
 
   return (
     <ReactFlowProvider>
       <ReactFlow
         nodes={nodes}
         edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
+        onNodesChange={updateNodesChange}
+        onEdgesChange={updateEdgesChange}
         onConnect={onConnect}
         fitView
         attributionPosition="top-right"

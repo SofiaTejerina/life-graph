@@ -7,7 +7,7 @@ const GroupNode = ({
   data = { title: "No funciono" },
   isConnectable = true,
 }) => {
-  const { currentGoal, setCurrentGoal } = useContext(GoalContext);
+  const { setCurrentGoal } = useContext(GoalContext);
 
   return (
     <div className="simple-node">
