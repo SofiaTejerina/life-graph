@@ -5,11 +5,11 @@ import fs from 'fs'
 
 class DBClient {
     readJSON(filename) {
-        return JSON.parse(fs.readFileSync(`./database/${filename}.json`, 'utf8'))
+        return JSON.parse(fs.readFileSync(`./src/database/${filename}.json`, 'utf8'))
     }
 
     writeJSON(filename, data) {
-        fs.writeFileSync(`./database/${filename}.json`, JSON.stringify(data, null, 4))
+        fs.writeFileSync(`./src/database/${filename}.json`, JSON.stringify(data, null, 4))
     }
 }
 

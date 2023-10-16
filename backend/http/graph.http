@@ -1,4 +1,24 @@
 GET http://localhost:80/api/v1/graph/nodes
-Accept: application/json
 
 ###
+
+PUT http://localhost:80/api/v1/graph/nodes
+Content-Type: application/json
+
+{
+    "test": true
+}
+
+###
+
+GET http://localhost:80/api/v1/graph/edges
+
+###
+
+PUT http://localhost:80/api/v1/graph/edges
+Content-Type: application/json
+
+{
+    "test": true
+}
+
