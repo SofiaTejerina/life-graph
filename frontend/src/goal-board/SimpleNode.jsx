@@ -1,7 +1,8 @@
 import { Handle, Position } from "reactflow";
-import "./baseNode.css";
 import { useContext } from "react";
+
 import { GoalContext } from "../contexts/GoalGontext";
+import "./baseNode.css";
 
 const SimpleNode = ({
   data = { title: "No funciono" },
