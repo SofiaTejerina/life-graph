@@ -3,13 +3,16 @@
     "version": "0.0.1",
     "private": true,
     "workspaces": [
-        "frontend"
+        "frontend",
+        "backend"
     ],
     "scripts": {
-        "frontend": "yarn workspace @life-graph/frontend run dev"
+        "frontend": "yarn workspace @life-graph/frontend run dev",
+        "backend": "yarn workspace @life-graph/backend run dev"
     },
     "devDependencies": {
         "@types/node": "^18.15.11",
         "eslint": "^8.45.0"
-    }
+    },
+    "dependencies": {}
 }
