@@ -1,3 +1,110 @@
-{
-    "test": true
-}
+[
+    {
+        "id": "2",
+        "type": "simpleNode",
+        "position": {
+            "x": 447.5,
+            "y": -62
+        },
+        "data": {
+            "props": {
+                "title": "Leer",
+                "data": {
+                    "progress": "2 libros",
+                    "time": "1 año",
+                    "money": "0USD"
+                }
+            }
+        },
+        "width": 58,
+        "height": 37,
+        "selected": false,
+        "positionAbsolute": {
+            "x": 447.5,
+            "y": -62
+        },
+        "dragging": false
+    },
+    {
+        "id": "3",
+        "type": "groupNode",
+        "position": {
+            "x": 251.7594202898551,
+            "y": -106.88115942028986
+        },
+        "data": {
+            "props": {
+                "title": "Idiomas",
+                "data": [
+                    {
+                        "props": {
+                            "id": 1,
+                            "title": "Inglés",
+                            "data": {
+                                "progress": "B2",
+                                "time": "1 año",
+                                "money": "2.000UYU"
+                            }
+                        }
+                    },
+                    {
+                        "props": {
+                            "id": 2,
+                            "title": "Francessss",
+                            "data": {
+                                "progress": "Junior",
+                                "time": "2 años",
+                                "money": "0UYU"
+                            }
+                        }
+                    },
+                    {
+                        "props": {
+                            "id": 3,
+                            "title": "Chino",
+                            "data": {
+                                "progress": "-",
+                                "time": "3 años",
+                                "money": "0UYU"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "width": 144,
+        "height": 190,
+        "selected": false,
+        "positionAbsolute": {
+            "x": 251.7594202898551,
+            "y": -106.88115942028986
+        },
+        "dragging": false
+    },
+    {
+        "id": "4",
+        "type": "simpleNode",
+        "position": {
+            "x": 104,
+            "y": 92
+        },
+        "data": {
+            "props": {
+                "title": "Viajar",
+                "data": {
+                    "progress": "5 paises",
+                    "time": "4 semanas",
+                    "money": "6.000USD"
+                }
+            }
+        },
+        "width": 67,
+        "height": 37,
+        "selected": false,
+        "positionAbsolute": {
+            "x": 104,
+            "y": 92
+        },
+        "dragging": false
+    }
+]

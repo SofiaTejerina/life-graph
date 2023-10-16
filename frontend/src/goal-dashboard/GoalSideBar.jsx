@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { GoalContext } from "../contexts/GoalGontext";
 import { InformationContext } from "../contexts/InformationContext";
+import axios from "axios";
 
 const goalInfo = (currentGoal) => {
   return (
@@ -13,9 +14,13 @@ const goalInfo = (currentGoal) => {
   );
 };
 
-const onSafe = (goals, edges) => {
-  console.log(goals);
-  console.log(edges);
+const client = axios.create({
+  baseURL: "http://localhost:80/api/v1/graph",
+});
+
+const onSave = (nodes, edges) => {
+  client.put("/edges", edges);
+  client.put("/nodes", nodes);
 };
 
 const GoalSideBar = () => {
@@ -24,7 +29,7 @@ const GoalSideBar = () => {
 
   return (
     <div>
-      <button onClick={() => onSafe(nodes, edges)}>Safe</button>
+      <button onClick={() => onSave(nodes, edges)}>Safe</button>
       <br></br>
       {currentGoal
         ? goalInfo(currentGoal)

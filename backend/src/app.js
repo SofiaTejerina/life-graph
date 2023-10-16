@@ -1,4 +1,6 @@
 import express from 'express';
+import cors from 'cors'
+
 
 import GraphRoutes from './routes/graph.js';
 import ErrorHandlerMiddleware from "./middlewares/errorHandler.js";
@@ -20,6 +22,7 @@ class App {
 
     middlewares() {
         this.app.use(express.json());
+        this.app.use(cors());
     }
 
     routes() {

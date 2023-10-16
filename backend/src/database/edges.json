@@ -1,3 +1,16 @@
-{
-    "test": true
-}
+[
+    {
+        "source": "3",
+        "sourceHandle": "right",
+        "target": "2",
+        "targetHandle": "left",
+        "id": "reactflow__edge-3right-2left"
+    },
+    {
+        "source": "4",
+        "sourceHandle": "right",
+        "target": "3",
+        "targetHandle": "left",
+        "id": "reactflow__edge-4right-3left"
+    }
+]
