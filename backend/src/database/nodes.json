@@ -3,8 +3,8 @@
         "id": "2",
         "type": "simpleNode",
         "position": {
-            "x": 436.86044252233125,
-            "y": -192.16253597508762
+            "x": 493.86044252233125,
+            "y": -547.1625359750876
         },
         "data": {
             "props": {
@@ -17,11 +17,11 @@
             }
         },
         "width": 58,
-        "height": 37,
-        "selected": false,
+        "height": 36,
+        "selected": true,
         "positionAbsolute": {
-            "x": 436.86044252233125,
-            "y": -192.16253597508762
+            "x": 493.86044252233125,
+            "y": -547.1625359750876
         },
         "dragging": false
     },
@@ -29,8 +29,8 @@
         "id": "3",
         "type": "groupNode",
         "position": {
-            "x": 148.22229922430176,
-            "y": -349.70187674086344
+            "x": 201.22229922430176,
+            "y": -453.20187674086344
         },
         "data": {
             "props": {
@@ -73,37 +73,11 @@
             }
         },
         "width": 144,
-        "height": 190,
+        "height": 188,
         "selected": false,
         "positionAbsolute": {
-            "x": 148.22229922430176,
-            "y": -349.70187674086344
-        },
-        "dragging": false
-    },
-    {
-        "id": "4",
-        "type": "simpleNode",
-        "position": {
-            "x": 427.56675490821294,
-            "y": -418.292825813964
-        },
-        "data": {
-            "props": {
-                "title": "Viajar",
-                "data": {
-                    "progress": "5 paises",
-                    "time": "4 semanas",
-                    "money": "6.000USD"
-                }
-            }
-        },
-        "width": 67,
-        "height": 37,
-        "selected": false,
-        "positionAbsolute": {
-            "x": 427.56675490821294,
-            "y": -418.292825813964
+            "x": 201.22229922430176,
+            "y": -453.20187674086344
         },
         "dragging": false
     }
