@@ -3,7 +3,7 @@ import { GoalABMContext } from "../contexts/GoalABMContext";
 import "./boardContentMenu.css";
 
 const BoardContextMenu = ({ verticalPosition, horizontalPosition }) => {
-  const { setIsCreatingNode } = useContext(GoalABMContext);
+  const { setIsCreatingNode, setIsSimpleNode } = useContext(GoalABMContext);
 
   return (
     <div
@@ -16,8 +16,8 @@ const BoardContextMenu = ({ verticalPosition, horizontalPosition }) => {
       <p
         className="option-item"
         onClick={() => {
+          setIsSimpleNode(true);
           setIsCreatingNode(true);
-          console.log("Crear nodo 1");
         }}
       >
         Crear Simple Node
@@ -26,7 +26,8 @@ const BoardContextMenu = ({ verticalPosition, horizontalPosition }) => {
       <p
         className="option-item"
         onClick={() => {
-          console.log("Crear nodo 2");
+          setIsSimpleNode(false);
+          setIsCreatingNode(true);
         }}
       >
         Crear Group Node
