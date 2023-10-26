@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { GoalABMContext } from "../contexts/GoalABMContext";
+
 const CreateSimpleGoal = () => {
+  const { setIsCreatingNode } = useContext(GoalABMContext);
+
   return (
     <div
       style={{
@@ -15,6 +20,13 @@ const CreateSimpleGoal = () => {
       }}
     >
       Holaaa creando un nuevo goal! Tu puedes pollo, te amo!
+      <button
+        onClick={() => {
+          setIsCreatingNode(false);
+        }}
+      >
+        Cancelar
+      </button>
     </div>
   );
 };
