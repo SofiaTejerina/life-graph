@@ -1,0 +1,11 @@
+.external-container {
+  position: absolute;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-style: solid;
+  border-color: black;
+}
+
+.option-item {
+  margin: 10px;
+}

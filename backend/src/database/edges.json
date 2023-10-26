@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "source": "3",
+        "sourceHandle": "right",
+        "target": "2",
+        "targetHandle": "left",
+        "id": "reactflow__edge-3right-2left"
+    }
+]
