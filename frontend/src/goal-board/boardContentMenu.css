@@ -1,7 +1,7 @@
 .external-container {
   position: absolute;
   z-index: 1000;
-  background-color: #ffffff;
+  background-color: white;
   border-style: solid;
   border-color: black;
 }
