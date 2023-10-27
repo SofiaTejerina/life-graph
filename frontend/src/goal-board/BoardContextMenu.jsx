@@ -22,7 +22,6 @@ const BoardContextMenu = ({ verticalPosition, horizontalPosition }) => {
       >
         Crear Simple Node
       </p>
-      <hr />
       <p
         className="option-item box"
         onClick={() => {
