@@ -14,7 +14,7 @@ const BoardContextMenu = ({ verticalPosition, horizontalPosition }) => {
       }}
     >
       <p
-        className="option-item"
+        className="option-item box"
         onClick={() => {
           setIsSimpleNode(true);
           setIsCreatingNode(true);
@@ -24,7 +24,7 @@ const BoardContextMenu = ({ verticalPosition, horizontalPosition }) => {
       </p>
       <hr />
       <p
-        className="option-item"
+        className="option-item box"
         onClick={() => {
           setIsSimpleNode(false);
           setIsCreatingNode(true);
