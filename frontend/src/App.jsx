@@ -45,6 +45,7 @@ function App() {
           <div
             className="right-side-component"
             onContextMenu={(e) => {
+              // prevent the default behaviour when right clicked
               e.preventDefault();
             }}
           >

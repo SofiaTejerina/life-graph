@@ -24,6 +24,9 @@ const nodeTypes = {
   groupNode: GroupNode,
 };
 
+let id = 10;
+const getId = () => `${id++}`;
+
 const GoalBoard = () => {
   const { nodes, onNodesChange, setNodes, edges, setEdges, onEdgesChange } =
     useContext(InformationContext);
@@ -42,7 +45,7 @@ const GoalBoard = () => {
         // we need to remove the wrapper bounds, in order to get the correct position
         const { top, left } = reactFlowWrapper.current.getBoundingClientRect();
         const newNode = {
-          id: "30",
+          id: getId(),
           type: "simpleNode",
           position: project({
             x: event.clientX - left,
