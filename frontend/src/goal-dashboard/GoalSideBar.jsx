@@ -5,6 +5,7 @@ import { GoalContext } from "../contexts/GoalGontext";
 import { InformationContext } from "../contexts/InformationContext";
 
 import "./goalSideBar.css";
+import EditText from "../utils/EditText";
 
 const client = axios.create({
   baseURL: "http://localhost:80/api/v1/graph",
@@ -23,17 +24,45 @@ const GoalSideBar = () => {
     return (
       <div>
         <div
-          className="block right-float"
+          className="block"
           onClick={() => {
-            console.log("Editar");
+            console.log("Convert to group node");
           }}
         >
-          Editar
+          Convert to group node
         </div>
-        <div>{currentGoal.title}</div>
-        <div>{currentGoal.data.progress}</div>
-        <div>{currentGoal.data.time}</div>
-        <div>{currentGoal.data.money}</div>
+        <EditText
+          name={"title"}
+          placeholder="Goal name"
+          value={currentGoal.title}
+          onSave={() => {
+            console.log("Guardando input");
+          }}
+        />
+        <EditText
+          name={"progress"}
+          placeholder="Goal progress"
+          value={currentGoal.data.progress}
+          onSave={() => {
+            console.log("Guardando input");
+          }}
+        />
+        <EditText
+          name={"time"}
+          placeholder="Goal time"
+          value={currentGoal.data.time}
+          onSave={() => {
+            console.log("Guardando input");
+          }}
+        />
+        <EditText
+          name={"money"}
+          placeholder="Goal money"
+          value={currentGoal.data.money}
+          onSave={() => {
+            console.log("Guardando input");
+          }}
+        />
       </div>
     );
   };
