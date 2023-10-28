@@ -4,6 +4,8 @@ import axios from "axios";
 import { GoalContext } from "../contexts/GoalGontext";
 import { InformationContext } from "../contexts/InformationContext";
 
+import "./goalSideBar.css";
+
 const client = axios.create({
   baseURL: "http://localhost:80/api/v1/graph",
 });
@@ -19,12 +21,20 @@ const GoalSideBar = () => {
 
   const goalInfo = () => {
     return (
-      <>
+      <div>
+        <div
+          className="block right-float"
+          onClick={() => {
+            console.log("Editar");
+          }}
+        >
+          Editar
+        </div>
         <div>{currentGoal.title}</div>
         <div>{currentGoal.data.progress}</div>
         <div>{currentGoal.data.time}</div>
         <div>{currentGoal.data.money}</div>
-      </>
+      </div>
     );
   };
 
