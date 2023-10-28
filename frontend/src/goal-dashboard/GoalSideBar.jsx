@@ -4,7 +4,6 @@ import axios from "axios";
 import { GoalContext } from "../contexts/GoalGontext";
 import { InformationContext } from "../contexts/InformationContext";
 
-import "./goalSideBar.css";
 import EditText from "../utils/EditText";
 
 const client = axios.create({
@@ -23,14 +22,6 @@ const GoalSideBar = () => {
   const goalInfo = () => {
     return (
       <div>
-        <div
-          className="block"
-          onClick={() => {
-            console.log("Convert to group node");
-          }}
-        >
-          Convert to group node
-        </div>
         <EditText
           name={"title"}
           placeholder="Goal name"
