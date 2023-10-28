@@ -6,9 +6,7 @@ import "./App.css";
 import GoalSideBar from "./goal-dashboard/GoalSideBar";
 import { GoalContext } from "./contexts/GoalGontext";
 import { InformationContext } from "./contexts/InformationContext";
-import BoardWrapper from "./goal-board/BoardWrapper";
-import CreateGoal from "./goal-abm/CreateGoal";
-import { GoalABMContext } from "./contexts/GoalABMContext";
+import GoalBoard from "./goal-board/GoalBoard";
 
 const client = axios.create({
   baseURL: "http://localhost:80/api/v1/graph",
@@ -21,11 +19,6 @@ function App() {
   // InformationContext
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
-
-  // GoalABMContext
-  const [isCreatingNode, setIsCreatingNode] = useState(false);
-  const [isSimpleNode, setIsSimpleNode] = useState(true);
-  const [newNodePosition, setNewNodePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     // Load the information from the backend
@@ -49,19 +42,14 @@ function App() {
           <div className="left-side-component">
             <GoalSideBar />
           </div>
-          <GoalABMContext.Provider
-            value={{
-              isCreatingNode,
-              setIsCreatingNode,
-              isSimpleNode,
-              setIsSimpleNode,
-              newNodePosition,
-              setNewNodePosition,
+          <div
+            className="right-side-component"
+            onContextMenu={(e) => {
+              e.preventDefault();
             }}
           >
-            <BoardWrapper />
-            {isCreatingNode && <CreateGoal />}
-          </GoalABMContext.Provider>
+            <GoalBoard />
+          </div>
         </div>
       </GoalContext.Provider>
     </InformationContext.Provider>
