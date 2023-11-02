@@ -8,5 +8,6 @@ router.put('/edges', graphController.updateEdges);
 
 router.get('/nodes', graphController.getNodes);
 router.put('/nodes', graphController.updateNodes);
+router.get('/nodes/next-id', graphController.getNextID)
 
 export default router

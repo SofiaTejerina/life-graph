@@ -38,6 +38,15 @@ class GraphController {
             next(err);
         }
     }
+
+    async getNextID(req, res, next) {
+        try {
+            const nextID = graphService.getNextID();
+            res.status(200).send({ nextID });
+        } catch (err) {
+            next(err);
+        }
+    }
 }
 
 export default new GraphController();
