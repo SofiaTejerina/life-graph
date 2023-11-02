@@ -1,4 +1,10 @@
-import React, { useCallback, useContext, useRef } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import ReactFlow, {
   addEdge,
   Background,
@@ -14,10 +20,7 @@ import SimpleNode from "./SimpleNode";
 import GroupNode from "./GroupNode";
 
 import { InformationContext } from "../contexts/InformationContext";
-
-const minimapStyle = {
-  height: 120,
-};
+import { GoalContext } from "../contexts/GoalGontext";
 
 const nodeTypes = {
   simpleNode: SimpleNode,
@@ -31,6 +34,7 @@ const GoalBoard = () => {
   // Get information from context
   const { nodes, onNodesChange, setNodes, edges, setEdges, onEdgesChange } =
     useContext(InformationContext);
+  const { currentGoal } = useContext(GoalContext);
 
   // Add new Edge
   const onConnect = useCallback((params) => {
@@ -78,6 +82,23 @@ const GoalBoard = () => {
     [project]
   );
 
+  const [nodeName, setName] = useState("Pruebaaa");
+  useEffect(() => {
+    setNodes((nds) => {
+      return nds.map((node) => {
+        if (node.id === currentGoal.id) {
+          node.data.props = {
+            ...node.data.props,
+            title: nodeName,
+          };
+          //         console.log(`Guardando input goal ${JSON.stringify(node)}`);
+          //         console.log(`Guardando nombre ${JSON.stringify(nodeName)}`);
+        }
+        return node;
+      });
+    });
+  }, [nodeName]);
+
   return (
     <div id="root" ref={reactFlowWrapper}>
       <ReactFlow
@@ -91,9 +112,29 @@ const GoalBoard = () => {
         nodeTypes={nodeTypes}
         onPaneContextMenu={onRightClickInTheBoard}
       >
-        <MiniMap style={minimapStyle} zoomable pannable />
+        <MiniMap
+          style={{
+            height: 120,
+          }}
+          zoomable
+          pannable
+        />
         <Controls />
         <Background color="#aaa" gap={16} />
+        <div
+          style={{
+            position: "absolute",
+            right: "10px",
+            top: "10px",
+            zIndex: 7,
+            fontSize: "12px",
+          }}
+        >
+          <input
+            value={nodeName}
+            onChange={(evt) => setName(evt.target.value)}
+          />
+        </div>
       </ReactFlow>
     </div>
   );

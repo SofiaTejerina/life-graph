@@ -80,5 +80,31 @@
             "y": -485.20187674086344
         },
         "dragging": false
+    },
+    {
+        "id": "10",
+        "type": "simpleNode",
+        "position": {
+            "x": 325.5921521233165,
+            "y": -526.7018767408634
+        },
+        "data": {
+            "props": {
+                "title": "Nuevo Nodo",
+                "data": {
+                    "progress": "Ingresar progreso",
+                    "time": "Ingresar año",
+                    "money": "Ingresar inversion"
+                }
+            }
+        },
+        "width": 58,
+        "height": 37,
+        "selected": false,
+        "positionAbsolute": {
+            "x": 393.36044252233125,
+            "y": -396.6625359750876
+        },
+        "dragging": false
     }
 ]

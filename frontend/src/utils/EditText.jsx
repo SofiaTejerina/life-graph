@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-import Input from "./Input";
 
-const EditText = ({ name, placeholder = "", value, onSave = () => {} }) => {
+const EditText = ({
+  name,
+  placeholder = "",
+  value = "",
+  onSave = () => {},
+}) => {
   const inputRef = useRef(null);
   const [editMode, setEditMode] = useState(false);
-  const [savedText, setSavedText] = useState("");
+  const [savedText, setSavedText] = useState(value);
 
   useEffect(() => {
-    if (value !== undefined) {
-      setSavedText(value);
-    }
+    setSavedText(value);
   }, [value, editMode]);
 
   const handleClickDisplay = () => {
@@ -30,8 +32,10 @@ const EditText = ({ name, placeholder = "", value, onSave = () => {} }) => {
   };
 
   const handleKeydown = (e) => {
+    // Keycode 13 is TODO
     if (e.keyCode === 13 || e.charCode === 13) {
       handleBlur();
+      // Keycode 27 is TODO
     } else if (e.keyCode === 27 || e.charCode === 27) {
       handleBlur(false);
     }
@@ -42,15 +46,13 @@ const EditText = ({ name, placeholder = "", value, onSave = () => {} }) => {
   };
 
   const renderEditMode = () => {
-    const sharedProps = {
-      inputRef: inputRef,
-      handleBlur: handleBlur,
-      handleKeydown: handleKeydown,
-    };
     return (
-      <Input
-        {...sharedProps}
-        defaultValue={savedText}
+      <input
+        ref={inputRef}
+        onBlur={handleBlur}
+        onKeyDown={handleKeydown}
+        autoFocus
+        value={savedText}
         name={name}
         placeholder={placeholder}
       />

@@ -16,7 +16,7 @@ const SimpleNode = ({
     <div
       className="simple-node"
       onClick={() => {
-        setCurrentGoal({ id: id, ...data.props });
+        setCurrentGoal({ ...data.props, id });
         console.log(`El nodo que se selecciono tiene el Id: ${id}`);
       }}
     >
