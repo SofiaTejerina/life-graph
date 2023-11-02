@@ -4,11 +4,10 @@ import { useContext } from "react";
 import { GoalContext } from "../contexts/GoalGontext";
 
 const GroupNode = ({
+  id,
   data = { title: "No funciono" },
   isConnectable = true,
 }) => {
-  const { setCurrentGoal } = useContext(GoalContext);
-
   return (
     <div className="simple-node">
       <Handle
@@ -20,12 +19,8 @@ const GroupNode = ({
       <ul className="group-list">
         {data.props.data.map((goal) => {
           return (
-            <li
-              onClick={() => setCurrentGoal(goal.props)}
-              className="item-list"
-              key={goal.props.id}
-            >
-              <SimpleNode data={goal} />
+            <li className="item-list" key={goal.props.id}>
+              <SimpleNode id={id} data={goal} />
             </li>
           );
         })}

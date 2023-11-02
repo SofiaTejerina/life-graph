@@ -28,16 +28,18 @@ let id = 10;
 const getId = () => `${id++}`;
 
 const GoalBoard = () => {
+  // Get information from context
   const { nodes, onNodesChange, setNodes, edges, setEdges, onEdgesChange } =
     useContext(InformationContext);
 
+  // Add new Edge
   const onConnect = useCallback((params) => {
     setEdges((eds) => addEdge(params, eds)), [];
   });
 
+  // Add new Node
   const { project } = useReactFlow();
   const reactFlowWrapper = useRef(null);
-
   const onRightClickInTheBoard = useCallback(
     (event) => {
       const targetIsPane = event.target.classList.contains("react-flow__pane");

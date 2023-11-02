@@ -5,13 +5,21 @@ import { GoalContext } from "../contexts/GoalGontext";
 import "./baseNode.css";
 
 const SimpleNode = ({
+  id,
   data = { title: "No funciono" },
   isConnectable = true,
 }) => {
+  // Get information from context
   const { setCurrentGoal } = useContext(GoalContext);
 
   return (
-    <div className="simple-node" onClick={() => setCurrentGoal(data.props)}>
+    <div
+      className="simple-node"
+      onClick={() => {
+        setCurrentGoal({ id: id, ...data.props });
+        console.log(`El nodo que se selecciono tiene el Id: ${id}`);
+      }}
+    >
       <Handle
         id="left"
         type="target"

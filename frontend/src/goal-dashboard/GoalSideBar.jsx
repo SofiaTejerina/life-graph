@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useCallback, useContext, useEffect } from "react";
 import axios from "axios";
 
 import { GoalContext } from "../contexts/GoalGontext";
@@ -16,8 +16,9 @@ const onSave = (nodes, edges) => {
 };
 
 const GoalSideBar = () => {
+  // Get information from contexts
   const { currentGoal } = useContext(GoalContext);
-  const { nodes, edges } = useContext(InformationContext);
+  const { nodes, edges, setNodes } = useContext(InformationContext);
 
   const goalInfo = () => {
     return (
