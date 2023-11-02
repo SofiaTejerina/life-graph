@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 
 import { GoalContext } from "../contexts/GoalGontext";
@@ -10,15 +10,18 @@ const client = axios.create({
   baseURL: "http://localhost:80/api/v1/graph",
 });
 
-const onSave = (nodes, edges) => {
-  client.put("/edges", edges);
-  client.put("/nodes", nodes);
-};
-
 const GoalSideBar = () => {
   // Get information from contexts
   const { currentGoal } = useContext(GoalContext);
   const { nodes, edges } = useContext(InformationContext);
+
+  const [isSaving, setSaving] = useState(false);
+  const onSave = async (nodes, edges) => {
+    setSaving(true);
+    if (!nodes?.loading) await client.put("/nodes", nodes);
+    if (!edges?.loading) await client.put("/edges", edges);
+    setSaving(false);
+  };
 
   const goalInfo = () => {
     return (
@@ -59,18 +62,27 @@ const GoalSideBar = () => {
     );
   };
 
-  document.addEventListener("keydown", (e) => {
+  document.addEventListener("keydown", async (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key === "s") {
       // Prevent the Save dialog to open
       e.preventDefault();
 
-      onSave(nodes, edges);
+      await onSave(nodes, edges);
     }
   });
 
   return (
     <div>
-      <button onClick={() => onSave(nodes, edges)}>Save</button>
+      {isSaving && (
+        <div
+          style={{
+            zIndex: 1000,
+          }}
+        >
+          Saving ...
+        </div>
+      )}
+      <button onClick={async () => await onSave(nodes, edges)}>Save</button>
       <hr></hr>
       {currentGoal
         ? goalInfo()

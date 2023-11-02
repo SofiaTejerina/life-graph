@@ -1,1 +1,16 @@
-[]
+[
+    {
+        "source": "2",
+        "sourceHandle": "right",
+        "target": "1",
+        "targetHandle": "left",
+        "id": "reactflow__edge-2right-1left"
+    },
+    {
+        "source": "2",
+        "sourceHandle": "right",
+        "target": "5",
+        "targetHandle": "left",
+        "id": "reactflow__edge-2right-5left"
+    }
+]

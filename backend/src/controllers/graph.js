@@ -1,7 +1,7 @@
 import graphService from '../services/graph.js';
 
 class GraphController {
-    async getEdges(req, res, next) {
+    getEdges(req, res, next) {
         try {
             const edges = graphService.getEdges();
             res.status(200).send(edges);
@@ -10,7 +10,7 @@ class GraphController {
         }
     }
 
-    async updateEdges(req, res, next) {
+    updateEdges(req, res, next) {
         try {
             const edges = req.body;
             graphService.updateEdges(edges);
@@ -20,7 +20,7 @@ class GraphController {
         }
     }
 
-    async getNodes(req, res, next) {
+    getNodes(req, res, next) {
         try {
             const nodes = graphService.getNodes();
             res.status(200).send(nodes);
@@ -29,7 +29,7 @@ class GraphController {
         }
     }
 
-    async updateNodes(req, res, next) {
+    updateNodes(req, res, next) {
         try {
             const nodes = req.body;
             graphService.updateNodes(nodes);
@@ -39,7 +39,7 @@ class GraphController {
         }
     }
 
-    async getNextID(req, res, next) {
+    getNextID(req, res, next) {
         try {
             const nextID = graphService.getNextID();
             res.status(200).send({ nextID });

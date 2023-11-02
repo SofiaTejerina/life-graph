@@ -1,7 +1,5 @@
 import { Handle, Position } from "reactflow";
 import SimpleNode from "./SimpleNode";
-import { useContext } from "react";
-import { GoalContext } from "../contexts/GoalGontext";
 
 const GroupNode = ({
   id,
@@ -16,6 +14,7 @@ const GroupNode = ({
         position={Position.Left}
         isConnectable={isConnectable}
       />
+      <p>{data.props.title}</p>
       <ul className="group-list">
         {data.props.data.map((goal) => {
           return (
