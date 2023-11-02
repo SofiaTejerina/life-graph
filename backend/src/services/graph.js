@@ -29,7 +29,6 @@ class GraphService {
                 }
             }
         }
-        console.log(maxID)
         return maxID + 1
     }
 }
