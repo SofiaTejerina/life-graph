@@ -55,6 +55,9 @@ const EditText = ({
         value={savedText}
         name={name}
         placeholder={placeholder}
+        onChange={(evt) => {
+          setSavedText(evt.target.value);
+        }}
       />
     );
   };

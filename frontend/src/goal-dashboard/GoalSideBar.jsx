@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import axios from "axios";
 
 import { GoalContext } from "../contexts/GoalGontext";
@@ -12,8 +12,8 @@ const client = axios.create({
 
 const GoalSideBar = () => {
   // Get information from contexts
-  const { currentGoal } = useContext(GoalContext);
-  const { nodes, edges } = useContext(InformationContext);
+  const { currentGoal, setCurrentGoal } = useContext(GoalContext);
+  const { nodes, edges, setNodes } = useContext(InformationContext);
 
   const [isSaving, setSaving] = useState(false);
   const onSave = async (nodes, edges) => {
@@ -23,6 +23,24 @@ const GoalSideBar = () => {
     setSaving(false);
   };
 
+  // Edit node data
+  const updateNodeData = ({ newTitle, newData }) => {
+    if (nodes?.loading || !currentGoal) return;
+    setNodes((nds) => {
+      return nds.map((node) => {
+        if (node.id === currentGoal.id) {
+          node.data.props = {
+            data: newData,
+            title: newTitle,
+          };
+          // update the current node in order tu vizualize the right data
+          setCurrentGoal({ ...node.data.props, id: node.id });
+        }
+        return node;
+      });
+    });
+  };
+
   const goalInfo = () => {
     return (
       <div>
@@ -30,32 +48,41 @@ const GoalSideBar = () => {
           name={"title"}
           placeholder="Goal name"
           value={currentGoal.title}
-          onSave={() => {
-            console.log("Guardando input");
+          onSave={({ value }) => {
+            updateNodeData({ newData: currentGoal.data, newTitle: value });
           }}
         />
         <EditText
           name={"progress"}
           placeholder="Goal progress"
           value={currentGoal.data.progress}
-          onSave={() => {
-            console.log("Guardando input");
+          onSave={({ value }) => {
+            updateNodeData({
+              newData: { ...currentGoal.data, progress: value },
+              newTitle: currentGoal.title,
+            });
           }}
         />
         <EditText
           name={"time"}
           placeholder="Goal time"
           value={currentGoal.data.time}
-          onSave={() => {
-            console.log("Guardando input");
+          onSave={({ value }) => {
+            updateNodeData({
+              newData: { ...currentGoal.data, time: value },
+              newTitle: currentGoal.title,
+            });
           }}
         />
         <EditText
           name={"money"}
           placeholder="Goal money"
           value={currentGoal.data.money}
-          onSave={() => {
-            console.log("Guardando input");
+          onSave={({ value }) => {
+            updateNodeData({
+              newData: { ...currentGoal.data, money: value },
+              newTitle: currentGoal.title,
+            });
           }}
         />
       </div>

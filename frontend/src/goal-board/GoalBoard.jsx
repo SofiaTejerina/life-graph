@@ -20,7 +20,6 @@ import SimpleNode from "./SimpleNode";
 import GroupNode from "./GroupNode";
 
 import { InformationContext } from "../contexts/InformationContext";
-import { GoalContext } from "../contexts/GoalGontext";
 
 const nodeTypes = {
   simpleNode: SimpleNode,
@@ -39,7 +38,6 @@ const GoalBoard = () => {
     nextID,
     setNextID,
   } = useContext(InformationContext);
-  const { currentGoal } = useContext(GoalContext);
 
   // Add new Edge
   const onConnect = useCallback((params) => {
@@ -89,24 +87,6 @@ const GoalBoard = () => {
     [project, nextID]
   );
 
-  const [nodeName, setName] = useState("Pruebaaa");
-  useEffect(() => {
-    if (nodes?.loading || !currentGoal) return;
-
-    setNodes((nds) => {
-      return nds.map((node) => {
-        if (node.id === currentGoal.id) {
-          node.data.props = {
-            ...node.data.props,
-            title: nodeName,
-          };
-        }
-        return node;
-      });
-    });
-  }, [nodeName]);
-  console.log(edges);
-
   return (
     <div id="root" ref={reactFlowWrapper}>
       {!nodes?.loading && !edges?.loading && (
@@ -139,12 +119,7 @@ const GoalBoard = () => {
               zIndex: 7,
               fontSize: "12px",
             }}
-          >
-            <input
-              value={nextID}
-              onChange={(evt) => setName(evt.target.value)}
-            />
-          </div>
+          ></div>
         </ReactFlow>
       )}
     </div>

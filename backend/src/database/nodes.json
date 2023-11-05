@@ -8,16 +8,16 @@
         },
         "data": {
             "props": {
-                "title": "Nuevo Nodo",
                 "data": {
-                    "progress": "Ingresar progreso",
-                    "time": "Ingresar año",
-                    "money": "Ingresar inversion"
-                }
+                    "progress": "Ingresar progreso5",
+                    "time": "Ingresar año5",
+                    "money": "Ingresar inversion5"
+                },
+                "title": "Nuevo Nodo5"
             }
         },
         "width": 115,
-        "height": 37,
+        "height": 36,
         "selected": false,
         "positionAbsolute": {
             "x": 393.36044252233125,
@@ -34,17 +34,17 @@
         },
         "data": {
             "props": {
-                "title": "Nuevo Nodo",
                 "data": {
-                    "progress": "Ingresar progreso",
-                    "time": "Ingresar año",
-                    "money": "Ingresar inversion"
-                }
+                    "progress": "Ingresar progreso4",
+                    "time": "Ingresar año4",
+                    "money": "Ingresar inversion4"
+                },
+                "title": "Nuevo Nodo4"
             }
         },
         "width": 115,
-        "height": 37,
-        "selected": true,
+        "height": 36,
+        "selected": false,
         "positionAbsolute": {
             "x": 117.1015625,
             "y": 230.5
@@ -60,16 +60,16 @@
         },
         "data": {
             "props": {
-                "title": "Nuevo Nodo",
                 "data": {
-                    "progress": "Ingresar progreso",
-                    "time": "Ingresar año",
-                    "money": "Ingresar inversion"
-                }
+                    "progress": "Ingresar progresoooo3",
+                    "time": "Ingresar año4",
+                    "money": "Ingresar inversion3"
+                },
+                "title": "Nuevo Nodooo3"
             }
         },
-        "width": 115,
-        "height": 37,
+        "width": 133,
+        "height": 36,
         "selected": false,
         "positionAbsolute": {
             "x": 393.36044252233125,
@@ -81,25 +81,25 @@
         "id": 4,
         "type": "simpleNode",
         "position": {
-            "x": 229.14276416288408,
-            "y": 164.1100558659218
+            "x": 254.60119183584004,
+            "y": 9.800810582902933
         },
         "data": {
             "props": {
-                "title": "Nuevo Nodo",
                 "data": {
-                    "progress": "Ingresar progreso",
-                    "time": "Ingresar año",
-                    "money": "Ingresar inversion"
-                }
+                    "progress": "Ingresar progreso2",
+                    "time": "Ingresar año2",
+                    "money": "Ingresar inversion2"
+                },
+                "title": "Nuevo Nodo2"
             }
         },
         "width": 58,
         "height": 37,
-        "selected": false,
+        "selected": true,
         "positionAbsolute": {
-            "x": 393.36044252233125,
-            "y": -396.6625359750876
+            "x": 254.60119183584004,
+            "y": 9.800810582902933
         },
         "dragging": false
     },
@@ -112,16 +112,16 @@
         },
         "data": {
             "props": {
-                "title": "Nuevo Nodo",
                 "data": {
-                    "progress": "Ingresar progreso",
-                    "time": "Ingresar año",
-                    "money": "Ingresar inversion"
-                }
+                    "progress": "Ingresar progreso1",
+                    "time": "Ingresar año1",
+                    "money": "Ingresar inversion1"
+                },
+                "title": "Nuevo Nodooooiiii1"
             }
         },
-        "width": 115,
-        "height": 37,
+        "width": 156,
+        "height": 36,
         "selected": false,
         "positionAbsolute": {
             "x": 393.36044252233125,
