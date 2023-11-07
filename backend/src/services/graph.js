@@ -23,11 +23,6 @@ class GraphService {
         let maxID = 0
         for (const node of nodes) {
             maxID = Math.max(maxID, node.id)
-            if (node.type === 'groupNode') {
-                for (const { props: { id } } of node.data.props.data) {
-                    maxID = Math.max(maxID, id)
-                }
-            }
         }
         return maxID + 1
     }
