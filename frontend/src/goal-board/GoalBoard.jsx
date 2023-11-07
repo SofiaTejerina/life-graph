@@ -97,8 +97,9 @@ const GoalBoard = () => {
   useOnSelectionChange({
     onChange: ({ nodes, edges }) => {
       // TODO: hacer que los nodos brillen o algo para saber que estan seleccionados
-      // TODO: eliminar los nodos simples de la lista de nodos
       // TODO: agregar una opcion de menu en el click derecho de agrupar
+      // TODO: si estas agrupando con un group node que solo meta los que el group node tiene dentro
+      // TODO: poder editar el nombre del group
       setSelectedNodes(nodes.map((node) => node.id));
     },
   });
@@ -141,6 +142,9 @@ const GoalBoard = () => {
         };
         setNextID((n) => n + 1);
         setNodes((nodes) => nodes.concat(newNode));
+        setNodes((nodes) =>
+          nodes.filter((node) => !selectedNodes.includes(node.id))
+        );
         // console.log(`El nodo que se va a crear es: ${JSON.stringify(newNode)}`);
         // setMenu({
         //   id: node.id,

@@ -29,8 +29,8 @@
         "id": "2",
         "type": "simpleNode",
         "position": {
-            "x": 117.1015625,
-            "y": 230.5
+            "x": 191.1015625,
+            "y": 194
         },
         "data": {
             "props": {
@@ -46,60 +46,83 @@
         "height": 36,
         "selected": false,
         "positionAbsolute": {
-            "x": 117.1015625,
-            "y": 230.5
+            "x": 191.1015625,
+            "y": 194
         },
         "dragging": false
     },
     {
-        "id": "3",
-        "type": "simpleNode",
+        "id": "6",
+        "type": "groupNode",
         "position": {
-            "x": 69.6015625,
-            "y": 163.75
+            "x": 171.71481973415928,
+            "y": -62.819598678353884
         },
         "data": {
             "props": {
-                "data": {
-                    "progress": "Ingresar progresoooo3",
-                    "time": "Ingresar año4",
-                    "money": "Ingresar inversion3"
-                },
-                "title": "Nuevo Nodooo3"
+                "title": "Group Node",
+                "data": [
+                    {
+                        "id": "3",
+                        "type": "simpleNode",
+                        "position": {
+                            "x": 128.1015625,
+                            "y": 114.25
+                        },
+                        "data": {
+                            "props": {
+                                "data": {
+                                    "progress": "Ingresar progresoooo3",
+                                    "time": "Ingresar año4",
+                                    "money": "Ingresar inversion3"
+                                },
+                                "title": "Nuevo Nodooo3"
+                            }
+                        },
+                        "width": 142,
+                        "height": 36,
+                        "selected": true,
+                        "positionAbsolute": {
+                            "x": 128.1015625,
+                            "y": 114.25
+                        },
+                        "dragging": false
+                    },
+                    {
+                        "id": "5",
+                        "type": "simpleNode",
+                        "position": {
+                            "x": 316.10505466567736,
+                            "y": -4.809636871508388
+                        },
+                        "data": {
+                            "props": {
+                                "data": {
+                                    "progress": "Ingresar progreso1",
+                                    "time": "Ingresar año1",
+                                    "money": "Ingresar inversion1"
+                                },
+                                "title": "Nuevo Nodooooiiii1"
+                            }
+                        },
+                        "width": 165,
+                        "height": 36,
+                        "selected": true,
+                        "positionAbsolute": {
+                            "x": 316.10505466567736,
+                            "y": -4.809636871508388
+                        },
+                        "dragging": false
+                    }
+                ]
             }
         },
-        "width": 142,
-        "height": 36,
-        "selected": false,
+        "width": 201,
+        "height": 176,
+        "selected": true,
         "positionAbsolute": {
-            "x": 393.36044252233125,
-            "y": -396.6625359750876
-        },
-        "dragging": false
-    },
-    {
-        "id": "5",
-        "type": "simpleNode",
-        "position": {
-            "x": 217.60505466567736,
-            "y": 112.19036312849161
-        },
-        "data": {
-            "props": {
-                "data": {
-                    "progress": "Ingresar progreso1",
-                    "time": "Ingresar año1",
-                    "money": "Ingresar inversion1"
-                },
-                "title": "Nuevo Nodooooiiii1"
-            }
-        },
-        "width": 165,
-        "height": 36,
-        "selected": false,
-        "positionAbsolute": {
-            "x": 393.36044252233125,
-            "y": -396.6625359750876
+            "x": 171.71481973415928,
+            "y": -62.819598678353884
         },
         "dragging": false
     }
