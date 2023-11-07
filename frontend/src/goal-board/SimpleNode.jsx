@@ -13,7 +13,6 @@ const SimpleNode = ({ id, data, isConnectable = true }) => {
       className="simple-node"
       onClick={() => {
         setCurrentGoal({ ...data.props, id });
-        console.log(`El nodo que se selecciono tiene el Id: ${id}`);
       }}
     >
       <Handle
@@ -22,7 +21,6 @@ const SimpleNode = ({ id, data, isConnectable = true }) => {
         position={Position.Left}
         isConnectable={isConnectable}
       />
-      {console.log(JSON.stringify(data))}
       <div>{data.props.title}</div>
       <Handle
         id="right"

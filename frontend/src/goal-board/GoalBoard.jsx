@@ -97,21 +97,22 @@ const GoalBoard = () => {
   useOnSelectionChange({
     onChange: ({ nodes, edges }) => {
       // TODO: hacer que los nodos brillen o algo para saber que estan seleccionados
+      // TODO: eliminar los nodos simples de la lista de nodos
+      // TODO: agregar una opcion de menu en el click derecho de agrupar
       setSelectedNodes(nodes.map((node) => node.id));
-      // console.log(`Losss nodos seleccionados: ${JSON.stringify(nodes)}`);
     },
   });
 
   // In order to create group nodes we must override the rick click of the node to create a new group node
   const [menu, setMenu] = useState(null);
   const onRightClickOnNode = useCallback(
-    (event, node) => {
+    (event, _) => {
       if (selectedNodes.length > 0) {
         // Prevent native context menu from showing
         event.preventDefault();
-
-        // Calculate position of the context menu. We want to make sure it doesn't get positioned off-screen.
         const { top, left } = reactFlowWrapper.current.getBoundingClientRect();
+
+        // Create the new group node
         const newNode = {
           id: nextID.toString(),
           type: "groupNode",
