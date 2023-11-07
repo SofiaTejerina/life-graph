@@ -22,6 +22,7 @@ const SimpleNode = ({ id, data, isConnectable = true }) => {
         position={Position.Left}
         isConnectable={isConnectable}
       />
+      {console.log(JSON.stringify(data))}
       <div>{data.props.title}</div>
       <Handle
         id="right"

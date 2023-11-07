@@ -11,6 +11,7 @@ import ReactFlow, {
   Controls,
   MiniMap,
   ReactFlowProvider,
+  useOnSelectionChange,
   useReactFlow,
 } from "reactflow";
 import "reactflow/dist/style.css";
@@ -50,7 +51,6 @@ const GoalBoard = () => {
   const onRightClickInTheBoard = useCallback(
     (event) => {
       const targetIsPane = event.target.classList.contains("react-flow__pane");
-      console.log(nextID);
       if (targetIsPane) {
         // we need to remove the wrapper bounds, in order to get the correct position
         const { top, left } = reactFlowWrapper.current.getBoundingClientRect();
@@ -82,10 +82,80 @@ const GoalBoard = () => {
         };
         setNextID((n) => n + 1);
         setNodes((nodes) => nodes.concat(newNode));
+      } else {
+        console.log("Holiss");
       }
     },
     [project, nextID]
   );
+
+  // To create a group node
+  // override del click derecho sobre un nodo https://reactflow.dev/api-reference/react-flow#on-node-context-menu
+
+  // In order to create group nodes we must get what nodes are selected
+  const [selectedNodes, setSelectedNodes] = useState([]);
+  useOnSelectionChange({
+    onChange: ({ nodes, edges }) => {
+      // TODO: hacer que los nodos brillen o algo para saber que estan seleccionados
+      setSelectedNodes(nodes.map((node) => node.id));
+      // console.log(`Losss nodos seleccionados: ${JSON.stringify(nodes)}`);
+    },
+  });
+
+  // In order to create group nodes we must override the rick click of the node to create a new group node
+  const [menu, setMenu] = useState(null);
+  const onRightClickOnNode = useCallback(
+    (event, node) => {
+      if (selectedNodes.length > 0) {
+        // Prevent native context menu from showing
+        event.preventDefault();
+
+        // Calculate position of the context menu. We want to make sure it doesn't get positioned off-screen.
+        const { top, left } = reactFlowWrapper.current.getBoundingClientRect();
+        const newNode = {
+          id: nextID.toString(),
+          type: "groupNode",
+          position: project({
+            x: event.clientX - left,
+            y: event.clientY - top,
+          }),
+          data: {
+            props: {
+              title: "Group Node",
+              data: nodes
+                .filter((n) => selectedNodes.includes(n.id))
+                .map((n) => {
+                  return { ...n };
+                }),
+            },
+          },
+          width: 58,
+          height: 37,
+          selected: false,
+          positionAbsolute: {
+            x: 393.36044252233125,
+            y: -396.6625359750876,
+          },
+          dragging: false,
+        };
+        setNextID((n) => n + 1);
+        setNodes((nodes) => nodes.concat(newNode));
+        // console.log(`El nodo que se va a crear es: ${JSON.stringify(newNode)}`);
+        // setMenu({
+        //   id: node.id,
+        //   top: event.clientY < pane.height - 200 && event.clientY,
+        //   left: event.clientX < pane.width - 200 && event.clientX,
+        //   right: event.clientX >= pane.width - 200 && pane.width - event.clientX,
+        //   bottom:
+        //     event.clientY >= pane.height - 200 && pane.height - event.clientY,
+        // });
+      }
+    },
+    [setMenu, selectedNodes]
+  );
+
+  // Close the context menu if it's open whenever the window is clicked.
+  const onPaneClick = useCallback(() => setMenu(null), [setMenu]);
 
   return (
     <div id="root" ref={reactFlowWrapper}>
@@ -101,6 +171,8 @@ const GoalBoard = () => {
           nodeTypes={nodeTypes}
           onPaneContextMenu={onRightClickInTheBoard}
           proOptions={{ hideAttribution: true }}
+          onPaneClick={onPaneClick}
+          onNodeContextMenu={onRightClickOnNode}
         >
           <MiniMap
             style={{
@@ -110,16 +182,8 @@ const GoalBoard = () => {
             pannable
           />
           <Controls />
+
           <Background color="#aaa" gap={16} />
-          <div
-            style={{
-              position: "absolute",
-              right: "10px",
-              top: "10px",
-              zIndex: 7,
-              fontSize: "12px",
-            }}
-          ></div>
         </ReactFlow>
       )}
     </div>

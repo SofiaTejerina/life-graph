@@ -18,8 +18,8 @@ const GroupNode = ({
       <ul className="group-list">
         {data.props.data.map((goal) => {
           return (
-            <li className="item-list" key={goal.props.id}>
-              <SimpleNode id={id} data={goal} />
+            <li className="item-list" key={goal.id}>
+              <SimpleNode id={id} data={{ ...goal.data }} />
             </li>
           );
         })}
