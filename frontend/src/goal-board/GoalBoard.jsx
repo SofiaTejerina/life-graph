@@ -27,6 +27,72 @@ const nodeTypes = {
   groupNode: GroupNode,
 };
 
+const defaultSimpleNodeValues = {
+  type: "simpleNode",
+  title: "New Node",
+  progress: "Progress input",
+  time: "Time input",
+  money: "Money input",
+};
+
+const returnNewSimpleNode = (nextID, position) => {
+  return {
+    id: nextID.toString(),
+    type: defaultSimpleNodeValues.type,
+    position: position,
+    data: {
+      props: {
+        title: defaultSimpleNodeValues.title,
+        data: {
+          progress: defaultSimpleNodeValues.progress,
+          time: defaultSimpleNodeValues.time,
+          money: defaultSimpleNodeValues.money,
+        },
+      },
+    },
+    width: 58,
+    height: 37,
+    selected: false,
+    positionAbsolute: {
+      x: 393.36044252233125,
+      y: -396.6625359750876,
+    },
+    dragging: false,
+  };
+};
+
+const returnNewGroupNode = (nextID, position, allNodes, selectedNodesIds) => {
+  return {
+    id: nextID.toString(),
+    type: "groupNode",
+    position: position,
+    data: {
+      props: {
+        title: "Group Node",
+        data: allNodes
+          .filter((n) => selectedNodesIds.includes(n.id))
+          .map((n) => {
+            if (n.type === "groupNode") {
+              return n.data.props.data.map((sn) => {
+                return { ...sn };
+              });
+            } else {
+              return { ...n };
+            }
+          }),
+      },
+    },
+    width: 58,
+    height: 37,
+    selected: false,
+    positionAbsolute: {
+      x: 393.36044252233125,
+      y: -396.6625359750876,
+    },
+    dragging: false,
+  };
+};
+
 const GoalBoard = () => {
   // Get information from context
   const {
@@ -45,52 +111,52 @@ const GoalBoard = () => {
     setEdges((eds) => addEdge(params, eds)), [];
   });
 
+  // create and safe new nodes
+  const createAndAddNewNode = (isGroupNode, event) => {
+    const { top, left } = reactFlowWrapper.current.getBoundingClientRect();
+    let newNode = null;
+    if (isGroupNode) {
+      // create the new group node
+      newNode = returnNewGroupNode(
+        nextID,
+        project({
+          x: event.clientX - left,
+          y: event.clientY - top,
+        }),
+        nodes,
+        selectedNodes
+      );
+    } else {
+      // create the new simple node
+      newNode = returnNewSimpleNode(
+        nextID,
+        project({
+          x: event.clientX - left,
+          y: event.clientY - top,
+        })
+      );
+    }
+    if (newNode !== null) {
+      // update the next id node value
+      setNextID((n) => n + 1);
+      // add the new node
+      setNodes((nodes) => nodes.concat(newNode));
+    }
+  };
+
   // Add new Node
   const { project } = useReactFlow();
   const reactFlowWrapper = useRef(null);
   const onRightClickInTheBoard = useCallback(
     (event) => {
       const targetIsPane = event.target.classList.contains("react-flow__pane");
+      event.preventDefault();
       if (targetIsPane) {
-        // we need to remove the wrapper bounds, in order to get the correct position
-        const { top, left } = reactFlowWrapper.current.getBoundingClientRect();
-        const newNode = {
-          id: nextID.toString(),
-          type: "simpleNode",
-          position: project({
-            x: event.clientX - left,
-            y: event.clientY - top,
-          }),
-          data: {
-            props: {
-              title: "Nuevo Nodo",
-              data: {
-                progress: "Ingresar progreso",
-                time: "Ingresar año",
-                money: "Ingresar inversion",
-              },
-            },
-          },
-          width: 58,
-          height: 37,
-          selected: false,
-          positionAbsolute: {
-            x: 393.36044252233125,
-            y: -396.6625359750876,
-          },
-          dragging: false,
-        };
-        setNextID((n) => n + 1);
-        setNodes((nodes) => nodes.concat(newNode));
-      } else {
-        console.log("Holiss");
+        createAndAddNewNode(false, event);
       }
     },
     [project, nextID]
   );
-
-  // To create a group node
-  // override del click derecho sobre un nodo https://reactflow.dev/api-reference/react-flow#on-node-context-menu
 
   // In order to create group nodes we must get what nodes are selected
   const [selectedNodes, setSelectedNodes] = useState([]);
@@ -108,44 +174,16 @@ const GoalBoard = () => {
   const [menu, setMenu] = useState(null);
   const onRightClickOnNode = useCallback(
     (event, _) => {
-      if (selectedNodes.length > 0) {
-        // Prevent native context menu from showing
-        event.preventDefault();
-        const { top, left } = reactFlowWrapper.current.getBoundingClientRect();
+      // Prevent native context menu from showing
+      event.preventDefault();
 
-        // Create the new group node
-        const newNode = {
-          id: nextID.toString(),
-          type: "groupNode",
-          position: project({
-            x: event.clientX - left,
-            y: event.clientY - top,
-          }),
-          data: {
-            props: {
-              title: "Group Node",
-              data: nodes
-                .filter((n) => selectedNodes.includes(n.id))
-                .map((n) => {
-                  return { ...n };
-                }),
-            },
-          },
-          width: 58,
-          height: 37,
-          selected: false,
-          positionAbsolute: {
-            x: 393.36044252233125,
-            y: -396.6625359750876,
-          },
-          dragging: false,
-        };
-        setNextID((n) => n + 1);
-        setNodes((nodes) => nodes.concat(newNode));
+      // If there are selected nodes we create a group node
+      if (selectedNodes.length > 1) {
+        createAndAddNewNode(true, event);
+        // delete the nodes that now are part of the group node
         setNodes((nodes) =>
           nodes.filter((node) => !selectedNodes.includes(node.id))
         );
-        // console.log(`El nodo que se va a crear es: ${JSON.stringify(newNode)}`);
         // setMenu({
         //   id: node.id,
         //   top: event.clientY < pane.height - 200 && event.clientY,
