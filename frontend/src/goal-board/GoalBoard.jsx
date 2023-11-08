@@ -62,6 +62,22 @@ const returnNewSimpleNode = (nextID, position) => {
 };
 
 const returnNewGroupNode = (nextID, position, allNodes, selectedNodesIds) => {
+  // first load all simple nodes
+  let newNodeData = allNodes
+    .filter((n) => selectedNodesIds.includes(n.id) && n.type !== "groupNode")
+    .map((n) => {
+      return { ...n };
+    });
+
+  // second load the nodes into the group nodes
+  allNodes
+    .filter((n) => selectedNodesIds.includes(n.id) && n.type === "groupNode")
+    .map((n) => {
+      n.data.props.data.map((sn) => {
+        newNodeData.push({ ...sn });
+      });
+    });
+
   return {
     id: nextID.toString(),
     type: "groupNode",
@@ -69,17 +85,7 @@ const returnNewGroupNode = (nextID, position, allNodes, selectedNodesIds) => {
     data: {
       props: {
         title: "Group Node",
-        data: allNodes
-          .filter((n) => selectedNodesIds.includes(n.id))
-          .map((n) => {
-            if (n.type === "groupNode") {
-              return n.data.props.data.map((sn) => {
-                return { ...sn };
-              });
-            } else {
-              return { ...n };
-            }
-          }),
+        data: newNodeData,
       },
     },
     width: 58,
