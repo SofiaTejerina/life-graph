@@ -20,6 +20,7 @@ function App() {
   // InformationContext
   const [nodes, setNodes, onNodesChange] = useNodesState({ loading: true });
   const [edges, setEdges, onEdgesChange] = useEdgesState({ loading: true });
+  const [selectedNodes, setSelectedNodes] = useState([]);
 
   useEffect(() => {
     // Load the information from the backend
@@ -41,6 +42,8 @@ function App() {
         onEdgesChange,
         nextID,
         setNextID,
+        selectedNodes,
+        setSelectedNodes,
       }}
     >
       <GoalContext.Provider value={{ currentGoal, setCurrentGoal }}>

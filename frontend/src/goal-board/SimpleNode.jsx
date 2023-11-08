@@ -3,14 +3,18 @@ import { useContext } from "react";
 
 import { GoalContext } from "../contexts/GoalGontext";
 import "./baseNode.css";
+import { InformationContext } from "../contexts/InformationContext";
 
 const SimpleNode = ({ id, data, isConnectable = true }) => {
   // Get information from context
   const { setCurrentGoal } = useContext(GoalContext);
+  const { selectedNodes } = useContext(InformationContext);
 
   return (
     <div
-      className="simple-node"
+      className={
+        selectedNodes.includes(id) ? "simple-selected-node" : "simple-node"
+      }
       onClick={() => {
         setCurrentGoal({ ...data.props, id });
       }}

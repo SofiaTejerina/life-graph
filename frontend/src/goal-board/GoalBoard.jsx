@@ -111,6 +111,8 @@ const GoalBoard = () => {
     onEdgesChange,
     nextID,
     setNextID,
+    selectedNodes,
+    setSelectedNodes,
   } = useContext(InformationContext);
 
   // Add new Edge
@@ -165,8 +167,7 @@ const GoalBoard = () => {
     [project, nextID]
   );
 
-  // In order to create group nodes we must get what nodes are selected
-  const [selectedNodes, setSelectedNodes] = useState([]);
+  // save wich nodes are beening selected
   useOnSelectionChange({
     onChange: ({ nodes, edges }) => {
       // TODO: hacer que los nodos brillen o algo para saber que estan seleccionados
