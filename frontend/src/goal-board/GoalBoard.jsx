@@ -21,6 +21,7 @@ import SimpleNode from "./SimpleNode";
 import GroupNode from "./GroupNode";
 
 import { InformationContext } from "../contexts/InformationContext";
+import NodeContextMenu from "./NodeContextMenu";
 
 const nodeTypes = {
   simpleNode: SimpleNode,
@@ -169,42 +170,58 @@ const GoalBoard = () => {
   useOnSelectionChange({
     onChange: ({ nodes, edges }) => {
       // TODO: hacer que los nodos brillen o algo para saber que estan seleccionados
-      // TODO: agregar una opcion de menu en el click derecho de agrupar
-      // TODO: si estas agrupando con un group node que solo meta los que el group node tiene dentro
       // TODO: poder editar el nombre del group
       setSelectedNodes(nodes.map((node) => node.id));
     },
   });
 
   // In order to create group nodes we must override the rick click of the node to create a new group node
-  const [menu, setMenu] = useState(null);
+  const [rightButtonClickedOnNode, setRightButtonClickedOnNode] =
+    useState(false);
+  const [rightClickLocationAndEvent, setRightClickLocationAndEvent] = useState({
+    x: 0,
+    y: 0,
+    event: null,
+  });
+
   const onRightClickOnNode = useCallback(
     (event, _) => {
       // Prevent native context menu from showing
       event.preventDefault();
-
       // If there are selected nodes we create a group node
       if (selectedNodes.length > 1) {
-        createAndAddNewNode(true, event);
-        // delete the nodes that now are part of the group node
-        setNodes((nodes) =>
-          nodes.filter((node) => !selectedNodes.includes(node.id))
-        );
-        // setMenu({
-        //   id: node.id,
-        //   top: event.clientY < pane.height - 200 && event.clientY,
-        //   left: event.clientX < pane.width - 200 && event.clientX,
-        //   right: event.clientX >= pane.width - 200 && pane.width - event.clientX,
-        //   bottom:
-        //     event.clientY >= pane.height - 200 && pane.height - event.clientY,
-        // });
+        const { top, left } = reactFlowWrapper.current.getBoundingClientRect();
+        setRightButtonClickedOnNode(true);
+        setRightClickLocationAndEvent({
+          x: event.clientX - left,
+          y: event.clientY - top,
+          event: event,
+        });
       }
     },
-    [setMenu, selectedNodes]
+    [rightButtonClickedOnNode, selectedNodes, rightClickLocationAndEvent]
   );
 
   // Close the context menu if it's open whenever the window is clicked.
-  const onPaneClick = useCallback(() => setMenu(null), [setMenu]);
+  const onPaneClick = useCallback(() => {
+    // set right click on false to hide the button
+    setRightButtonClickedOnNode(false);
+  }, [setRightButtonClickedOnNode]);
+
+  const onCreateGroupNodeClick = useCallback(() => {
+    createAndAddNewNode(true, rightClickLocationAndEvent.event);
+    // delete the nodes that now are part of the group node
+    setNodes((nodes) =>
+      nodes.filter((node) => !selectedNodes.includes(node.id))
+    );
+    // quit the right button menu
+    onPaneClick();
+  }, [
+    rightClickLocationAndEvent,
+    selectedNodes,
+    setSelectedNodes,
+    setRightClickLocationAndEvent,
+  ]);
 
   return (
     <div id="root" ref={reactFlowWrapper}>
@@ -223,6 +240,7 @@ const GoalBoard = () => {
           onPaneClick={onPaneClick}
           onNodeContextMenu={onRightClickOnNode}
         >
+          ,
           <MiniMap
             style={{
               height: 120,
@@ -231,7 +249,14 @@ const GoalBoard = () => {
             pannable
           />
           <Controls />
-
+          {rightButtonClickedOnNode && (
+            <NodeContextMenu
+              onClick={onPaneClick}
+              onCreateGroupNodeClick={onCreateGroupNodeClick}
+              verticalPosition={rightClickLocationAndEvent.y}
+              horizontalPosition={rightClickLocationAndEvent.x}
+            />
+          )}
           <Background color="#aaa" gap={16} />
         </ReactFlow>
       )}
