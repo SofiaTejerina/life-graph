@@ -170,7 +170,6 @@ const GoalBoard = () => {
   // save wich nodes are beening selected
   useOnSelectionChange({
     onChange: ({ nodes, edges }) => {
-      // TODO: poder editar el nombre del group
       setSelectedNodes(nodes.map((node) => node.id));
     },
   });
