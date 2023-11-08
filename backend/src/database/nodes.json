@@ -130,12 +130,11 @@
         "id": "13",
         "type": "groupNode",
         "position": {
-            "x": 312.21287861707964,
-            "y": -144.45489966958846
+            "x": 351.21287861707964,
+            "y": -161.95489966958846
         },
         "data": {
             "props": {
-                "title": "Group Node",
                 "data": [
                     {
                         "id": "7",
@@ -241,16 +240,17 @@
                         },
                         "dragging": false
                     }
-                ]
+                ],
+                "title": "Group Node11"
             }
         },
         "width": 137,
         "height": 268,
         "selected": true,
         "positionAbsolute": {
-            "x": 312.21287861707964,
-            "y": -144.45489966958846
+            "x": 351.21287861707964,
+            "y": -161.95489966958846
         },
-        "dragging": false
+        "dragging": true
     }
 ]
