@@ -31,6 +31,26 @@ function App() {
     client.get("/edges").then((response) => setEdges(response.data));
   }, []);
 
+  const [isSaving, setSaving] = useState(false);
+  const onSave = async (nodes, edges) => {
+    setSaving(true);
+    if (!nodes?.loading) await client.put("/nodes", nodes);
+    if (!edges?.loading) await client.put("/edges", edges);
+    setTimeout(() => {
+      // TODO: luego eliminar esto, es que no se porque se va y todavía no esta guardado!
+      setSaving(false);
+    }, 1000);
+  };
+
+  document.addEventListener("keydown", async (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === "s") {
+      // Prevent the Save dialog to open
+      e.preventDefault();
+
+      await onSave(nodes, edges);
+    }
+  });
+
   return (
     <InformationContext.Provider
       value={{
@@ -48,7 +68,14 @@ function App() {
     >
       <GoalContext.Provider value={{ currentGoal, setCurrentGoal }}>
         <div id="root">
+          {isSaving && <div className="informative-snackbar">Saving ...</div>}
           <div className="left-side-component">
+            <div
+              className="block"
+              onClick={async () => await onSave(nodes, edges)}
+            >
+              Save
+            </div>
             <GoalSideBar />
           </div>
           <div
