@@ -6,6 +6,7 @@ import { useContext } from "react";
 const GroupNode = ({
   id,
   data = { title: "No funciono" },
+  type,
   isConnectable = true,
 }) => {
   const { setCurrentGoal } = useContext(GoalContext);
@@ -14,7 +15,7 @@ const GroupNode = ({
     <div
       className="simple-node"
       onClick={() => {
-        setCurrentGoal({ ...data.props, id });
+        setCurrentGoal({ ...data, id, type });
       }}
     >
       <Handle

@@ -130,8 +130,8 @@
         "id": "13",
         "type": "groupNode",
         "position": {
-            "x": 351.21287861707964,
-            "y": -161.95489966958846
+            "x": 383.21287861707964,
+            "y": -243.45489966958849
         },
         "data": {
             "props": {
@@ -248,9 +248,87 @@
         "height": 268,
         "selected": true,
         "positionAbsolute": {
-            "x": 351.21287861707964,
-            "y": -161.95489966958846
+            "x": 383.21287861707964,
+            "y": -243.45489966958849
         },
-        "dragging": true
+        "dragging": false
+    },
+    {
+        "id": "14",
+        "type": "simpleNode",
+        "position": {
+            "x": 389.51853667561943,
+            "y": 137.77255016520576
+        },
+        "data": {
+            "props": {
+                "data": {
+                    "progress": "Progress input2354",
+                    "time": "Time input3445",
+                    "money": "Money input45"
+                },
+                "title": "New Node2354"
+            }
+        },
+        "width": 101,
+        "height": 36,
+        "selected": false,
+        "positionAbsolute": {
+            "x": 393.36044252233125,
+            "y": -396.6625359750876
+        },
+        "dragging": false
+    },
+    {
+        "id": "15",
+        "type": "simpleNode",
+        "position": {
+            "x": 279.51853667561943,
+            "y": -172.72744983479424
+        },
+        "data": {
+            "props": {
+                "data": {
+                    "progress": "Progress input78",
+                    "time": "Time input78",
+                    "money": "Money input78"
+                },
+                "title": "New Node78"
+            }
+        },
+        "width": 101,
+        "height": 36,
+        "selected": false,
+        "positionAbsolute": {
+            "x": 393.36044252233125,
+            "y": -396.6625359750876
+        },
+        "dragging": false
+    },
+    {
+        "id": "16",
+        "type": "simpleNode",
+        "position": {
+            "x": 197.01853667561943,
+            "y": -132.22744983479424
+        },
+        "data": {
+            "props": {
+                "data": {
+                    "progress": "Progress input78",
+                    "time": "Time input78",
+                    "money": "Money input78"
+                },
+                "title": "New Node78"
+            }
+        },
+        "width": 101,
+        "height": 36,
+        "selected": false,
+        "positionAbsolute": {
+            "x": 393.36044252233125,
+            "y": -396.6625359750876
+        },
+        "dragging": false
     }
 ]

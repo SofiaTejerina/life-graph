@@ -5,6 +5,7 @@ import { GoalContext } from "../contexts/GoalGontext";
 import { InformationContext } from "../contexts/InformationContext";
 
 import EditText from "../utils/EditText";
+import GoalInformation from "./GoalInformation";
 
 const client = axios.create({
   baseURL: "http://localhost:80/api/v1/graph",
@@ -23,70 +24,23 @@ const GoalSideBar = () => {
     setSaving(false);
   };
 
-  // Edit node data
-  const updateNodeData = ({ newTitle, newData }) => {
-    if (nodes?.loading || !currentGoal) return;
-    setNodes((nds) => {
-      return nds.map((node) => {
-        if (node.id === currentGoal.id) {
-          node.data.props = {
-            data: newData,
-            title: newTitle,
-          };
-          // update the current node in order tu vizualize the right data
-          setCurrentGoal({ ...node.data.props, id: node.id });
-        }
-        return node;
-      });
-    });
-  };
-
-  const goalInfo = () => {
-    return (
-      <div>
-        <EditText
-          name={"title"}
-          placeholder="Goal name"
-          value={currentGoal.title}
-          onSave={({ value }) => {
-            updateNodeData({ newData: currentGoal.data, newTitle: value });
-          }}
-        />
-        <EditText
-          name={"progress"}
-          placeholder="Goal progress"
-          value={currentGoal.data.progress}
-          onSave={({ value }) => {
-            updateNodeData({
-              newData: { ...currentGoal.data, progress: value },
-              newTitle: currentGoal.title,
-            });
-          }}
-        />
-        <EditText
-          name={"time"}
-          placeholder="Goal time"
-          value={currentGoal.data.time}
-          onSave={({ value }) => {
-            updateNodeData({
-              newData: { ...currentGoal.data, time: value },
-              newTitle: currentGoal.title,
-            });
-          }}
-        />
-        <EditText
-          name={"money"}
-          placeholder="Goal money"
-          value={currentGoal.data.money}
-          onSave={({ value }) => {
-            updateNodeData({
-              newData: { ...currentGoal.data, money: value },
-              newTitle: currentGoal.title,
-            });
-          }}
-        />
-      </div>
-    );
+  const returnGoalInfo = () => {
+    if (currentGoal.type === "groupNode") {
+      return (
+        <div>
+          {currentGoal.props.data.map((n) => {
+            return (
+              <div key={n.id}>
+                <GoalInformation goal={{ ...n.data.props, id: n.id }} />
+                <hr />
+              </div>
+            );
+          })}
+        </div>
+      );
+    } else {
+      return <GoalInformation goal={currentGoal} />;
+    }
   };
 
   document.addEventListener("keydown", async (e) => {
@@ -112,7 +66,7 @@ const GoalSideBar = () => {
       <button onClick={async () => await onSave(nodes, edges)}>Save</button>
       <hr></hr>
       {currentGoal
-        ? goalInfo()
+        ? returnGoalInfo()
         : "Click some node to read the information about"}
     </div>
   );

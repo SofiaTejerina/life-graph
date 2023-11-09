@@ -22,6 +22,7 @@ import GroupNode from "./GroupNode";
 
 import { InformationContext } from "../contexts/InformationContext";
 import NodeContextMenu from "./NodeContextMenu";
+import { GoalContext } from "../contexts/GoalGontext";
 
 const nodeTypes = {
   simpleNode: SimpleNode,
@@ -114,6 +115,7 @@ const GoalBoard = () => {
     selectedNodes,
     setSelectedNodes,
   } = useContext(InformationContext);
+  const { setCurrentGoal } = useContext(GoalContext);
 
   // Add new Edge
   const onConnect = useCallback((params) => {
@@ -169,7 +171,7 @@ const GoalBoard = () => {
 
   // save wich nodes are beening selected
   useOnSelectionChange({
-    onChange: ({ nodes, edges }) => {
+    onChange: ({ nodes }) => {
       setSelectedNodes(nodes.map((node) => node.id));
     },
   });
@@ -205,7 +207,11 @@ const GoalBoard = () => {
   const onPaneClick = useCallback(() => {
     // set right click on false to hide the button
     setRightButtonClickedOnNode(false);
-  }, [setRightButtonClickedOnNode]);
+    // reset the current selected goal
+    setCurrentGoal(null);
+    // reset the selected nodes
+    setSelectedNodes([]);
+  }, [setRightButtonClickedOnNode, setCurrentGoal, setSelectedNodes]);
 
   const onCreateGroupNodeClick = useCallback(() => {
     createAndAddNewNode(true, rightClickLocationAndEvent.event);
