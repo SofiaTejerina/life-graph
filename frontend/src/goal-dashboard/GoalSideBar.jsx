@@ -24,14 +24,61 @@ const GoalSideBar = () => {
     setSaving(false);
   };
 
+  const updateSimpleNodeData = (goal) => {
+    return ({ newTitle, newData }) => {
+      if (nodes?.loading || !goal) return;
+      setNodes((nds) => {
+        return nds.map((node) => {
+          if (node.id === goal.id) {
+            node.data.props = {
+              data: newData,
+              title: newTitle,
+            };
+            // update the current node in order tu vizualize the right data
+            setCurrentGoal({ ...node.data.props, id: node.id });
+          }
+          return node;
+        });
+      });
+    };
+  };
+
+  const updateGroupNodeData = (groupNodeId, goal) => {
+    return ({ newTitle, newData }) => {
+      if (nodes?.loading || !goal) return;
+      setNodes((nds) => {
+        return nds.map((node) => {
+          if (node.id === groupNodeId) {
+            node.data.props.data.map((n) => {
+              if (n.id === goal.id) {
+                n.data.props = {
+                  data: newData,
+                  title: newTitle,
+                };
+                // update the current node in order tu vizualize the right data
+                setCurrentGoal({ ...node.data.props, id: node.id });
+              }
+            });
+            console.log(JSON.stringify(node));
+          }
+          return node;
+        });
+      });
+    };
+  };
+
   const returnGoalInfo = () => {
     if (currentGoal.type === "groupNode") {
       return (
         <div>
           {currentGoal.props.data.map((n) => {
+            const goal = { ...n.data.props, id: n.id };
             return (
               <div key={n.id}>
-                <GoalInformation goal={{ ...n.data.props, id: n.id }} />
+                <GoalInformation
+                  goal={goal}
+                  onSaveAction={updateGroupNodeData(currentGoal.id, goal)}
+                />
                 <hr />
               </div>
             );
@@ -39,7 +86,12 @@ const GoalSideBar = () => {
         </div>
       );
     } else {
-      return <GoalInformation goal={currentGoal} />;
+      return (
+        <GoalInformation
+          goal={currentGoal}
+          onSaveAction={updateSimpleNodeData(currentGoal)}
+        />
+      );
     }
   };
 

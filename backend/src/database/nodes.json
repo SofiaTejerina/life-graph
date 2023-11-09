@@ -127,133 +127,6 @@
         "dragging": false
     },
     {
-        "id": "13",
-        "type": "groupNode",
-        "position": {
-            "x": 383.21287861707964,
-            "y": -243.45489966958849
-        },
-        "data": {
-            "props": {
-                "data": [
-                    {
-                        "id": "7",
-                        "type": "simpleNode",
-                        "position": {
-                            "x": 241.71287861707964,
-                            "y": -137.90979933917694
-                        },
-                        "data": {
-                            "props": {
-                                "title": "New Node",
-                                "data": {
-                                    "progress": "Progress input",
-                                    "time": "Time input",
-                                    "money": "Money input"
-                                }
-                            }
-                        },
-                        "width": 101,
-                        "height": 36,
-                        "selected": true,
-                        "positionAbsolute": {
-                            "x": 393.36044252233125,
-                            "y": -396.6625359750876
-                        },
-                        "dragging": false
-                    },
-                    {
-                        "id": "8",
-                        "type": "simpleNode",
-                        "position": {
-                            "x": 378.21287861707964,
-                            "y": -150.90979933917694
-                        },
-                        "data": {
-                            "props": {
-                                "title": "New Node",
-                                "data": {
-                                    "progress": "Progress input",
-                                    "time": "Time input",
-                                    "money": "Money input"
-                                }
-                            }
-                        },
-                        "width": 101,
-                        "height": 36,
-                        "selected": true,
-                        "positionAbsolute": {
-                            "x": 393.36044252233125,
-                            "y": -396.6625359750876
-                        },
-                        "dragging": false
-                    },
-                    {
-                        "id": "10",
-                        "type": "simpleNode",
-                        "position": {
-                            "x": 218.71287861707964,
-                            "y": 145.54510033041154
-                        },
-                        "data": {
-                            "props": {
-                                "title": "New Node",
-                                "data": {
-                                    "progress": "Progress input",
-                                    "time": "Time input",
-                                    "money": "Money input"
-                                }
-                            }
-                        },
-                        "width": 101,
-                        "height": 36,
-                        "selected": true,
-                        "positionAbsolute": {
-                            "x": 393.36044252233125,
-                            "y": -396.6625359750876
-                        },
-                        "dragging": false
-                    },
-                    {
-                        "id": "11",
-                        "type": "simpleNode",
-                        "position": {
-                            "x": 379.21287861707964,
-                            "y": 154.04510033041154
-                        },
-                        "data": {
-                            "props": {
-                                "title": "New Node",
-                                "data": {
-                                    "progress": "Progress input",
-                                    "time": "Time input",
-                                    "money": "Money input"
-                                }
-                            }
-                        },
-                        "width": 101,
-                        "height": 36,
-                        "selected": true,
-                        "positionAbsolute": {
-                            "x": 393.36044252233125,
-                            "y": -396.6625359750876
-                        },
-                        "dragging": false
-                    }
-                ],
-                "title": "Group Node11"
-            }
-        },
-        "width": 137,
-        "height": 268,
-        "selected": true,
-        "positionAbsolute": {
-            "x": 383.21287861707964,
-            "y": -243.45489966958849
-        },
-        "dragging": false
-    },
-    {
         "id": "14",
         "type": "simpleNode",
         "position": {
@@ -270,7 +143,7 @@
                 "title": "New Node2354"
             }
         },
-        "width": 101,
+        "width": 136,
         "height": 36,
         "selected": false,
         "positionAbsolute": {
@@ -296,7 +169,7 @@
                 "title": "New Node78"
             }
         },
-        "width": 101,
+        "width": 119,
         "height": 36,
         "selected": false,
         "positionAbsolute": {
@@ -322,7 +195,7 @@
                 "title": "New Node78"
             }
         },
-        "width": 101,
+        "width": 119,
         "height": 36,
         "selected": false,
         "positionAbsolute": {
