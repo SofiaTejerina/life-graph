@@ -2,6 +2,7 @@ import { Handle, Position } from "reactflow";
 import SimpleNode from "./SimpleNode";
 import { GoalContext } from "../contexts/GoalGontext";
 import { useContext } from "react";
+import { InformationContext } from "../contexts/InformationContext";
 
 const GroupNode = ({
   id,
@@ -10,10 +11,13 @@ const GroupNode = ({
   isConnectable = true,
 }) => {
   const { setCurrentGoal } = useContext(GoalContext);
+  const { selectedNodes } = useContext(InformationContext);
 
   return (
     <div
-      className="simple-node"
+      className={
+        selectedNodes.includes(id) ? "simple-selected-node" : "simple-node"
+      }
       onClick={() => {
         setCurrentGoal({ ...data, id, type });
       }}

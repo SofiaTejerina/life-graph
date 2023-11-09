@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 
 import { GoalContext } from "../contexts/GoalGontext";
@@ -6,6 +6,8 @@ import { InformationContext } from "../contexts/InformationContext";
 
 import EditText from "../utils/EditText";
 import GoalInformation from "./GoalInformation";
+
+import "./goalSideBar.css";
 
 const client = axios.create({
   baseURL: "http://localhost:80/api/v1/graph",
@@ -139,7 +141,9 @@ const GoalSideBar = () => {
           Saving ...
         </div>
       )}
-      <button onClick={async () => await onSave(nodes, edges)}>Save</button>
+      <div className="block" onClick={async () => await onSave(nodes, edges)}>
+        Save
+      </div>
       <hr></hr>
       {currentGoal
         ? returnGoalInfo()
