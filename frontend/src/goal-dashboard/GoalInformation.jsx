@@ -3,7 +3,6 @@ import EditText from "../utils/EditText";
 const GoalInformation = ({ goal, onSaveAction }) => {
   return (
     <div>
-      {console.log(JSON.stringify(goal))}
       <EditText
         name={"title"}
         placeholder="Goal name"

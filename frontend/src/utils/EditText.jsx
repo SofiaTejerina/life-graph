@@ -15,7 +15,6 @@ const EditText = ({
   }, [value, editMode]);
 
   const handleClickDisplay = () => {
-    console.log(`El valor actual es ${value}`);
     setEditMode(true);
   };
 

@@ -59,7 +59,6 @@ const GoalSideBar = () => {
                 setCurrentGoal({ ...node.data.props, id: node.id });
               }
             });
-            console.log(JSON.stringify(node));
           }
           return node;
         });
@@ -67,10 +66,35 @@ const GoalSideBar = () => {
     };
   };
 
+  const updateGroupNodeTitle = (newTitle, nodeId) => {
+    if (nodes?.loading) return;
+    setNodes((nds) => {
+      return nds.map((node) => {
+        if (node.id === nodeId) {
+          node.data.props = {
+            ...node.data.props,
+            title: newTitle,
+          };
+          setCurrentGoal({ ...node.data.props, id: node.id });
+        }
+        return node;
+      });
+    });
+  };
+
   const returnGoalInfo = () => {
     if (currentGoal.type === "groupNode") {
       return (
         <div>
+          <EditText
+            name={"gorupTitle"}
+            placeholder="Group node title"
+            value={currentGoal.props.title}
+            onSave={({ value }) => {
+              updateGroupNodeTitle(value, currentGoal.id);
+            }}
+          />
+          <hr />
           {currentGoal.props.data.map((n) => {
             const goal = { ...n.data.props, id: n.id };
             return (
