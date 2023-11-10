@@ -22,7 +22,11 @@ const GoalSideBar = () => {
               title: newTitle,
             };
             // update the current node in order tu vizualize the right data
-            setCurrentGoal({ ...node.data.props, id: node.id });
+            setCurrentGoal({
+              ...node.data.props,
+              id: node.id,
+              type: node.type,
+            });
           }
           return node;
         });
@@ -43,7 +47,7 @@ const GoalSideBar = () => {
                   title: newTitle,
                 };
                 // update the current node in order tu vizualize the right data
-                setCurrentGoal({ ...node.data.props, id: node.id });
+                setCurrentGoal({ ...node.data, id: node.id, type: node.type });
               }
             });
           }
@@ -62,7 +66,7 @@ const GoalSideBar = () => {
             ...node.data.props,
             title: newTitle,
           };
-          setCurrentGoal({ ...node.data.props, id: node.id });
+          setCurrentGoal({ ...node.data, id: node.id, type: node.type });
         }
         return node;
       });
