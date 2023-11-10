@@ -1,0 +1,32 @@
+.container {
+  padding-top: 25%;
+  display: flex;
+  place-content: center center;
+}
+
+.data-container {
+  display: flex;
+  flex-flow: column wrap;
+  height: fit-content;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 7px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.title {
+  text-align: center;
+  margin: 10px;
+}
+
+input {
+  margin: 8px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 7px;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+}

@@ -1,8 +1,8 @@
 import "./App.css";
-import MainBoardPage from "./goal-board/MainBoardPage";
+import Login from "./login/Login";
 
 function App() {
-  return <MainBoardPage />;
+  return <Login />;
 }
 
 export default App;
