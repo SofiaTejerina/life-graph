@@ -4,7 +4,8 @@ import "./App.css";
 import { AuthContext } from "./contexts/AuthContext";
 import Login from "./login/Login";
 import MainBoardPage from "./goal-board/MainBoardPage";
-import { PrivateRoute } from "./utils/PrivateRoute";
+import { PrivateRoute } from "./Routes/PrivateRoute";
+import { GraphRoutes } from "./Routes/GraphRoutes";
 
 function App() {
   const [isUserLogged, setIsUserLogged] = useState(false);
@@ -22,17 +23,10 @@ function App() {
             path="/*"
             element={
               <PrivateRoute>
-                <MainBoardPage />
+                <GraphRoutes />
               </PrivateRoute>
             }
           />
-          ;
-          {/* <Route
-            path="/home"
-            element={
-              isUserLogged ? <MainBoardPage /> : <Navigate to="/login" />
-            }
-          /> */}
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
