@@ -1,26 +1,51 @@
+import { useContext, useState } from "react";
 import "./login.css";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Login = () => {
+  const [userName, setUserName] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  const { setIsUserLogged } = useContext(AuthContext);
+
+  const validateLogin = () => {
+    if (userName.length > 0 && userPassword.length > 0) {
+      setIsUserLogged(true);
+    }
+  };
+
   return (
     <div className="container">
       <div className="data-container">
         <div className="title">Login</div>
         <input
           autoFocus
-          value={"Valor default"}
-          placeholder={"Integra el mail"}
+          value={userName}
+          name="userName"
+          autoComplete="username"
+          placeholder={"Ingresa el mail"}
           onChange={(evt) => {
-            console.log(evt);
+            setUserName(evt.target.value);
           }}
         />
         <input
           autoFocus
-          value={"Valor default"}
-          placeholder={"Integra el password"}
+          type="password"
+          name="userPassword"
+          autoComplete="current-password"
+          value={userPassword}
+          placeholder={"Ingresa el password"}
           onChange={(evt) => {
-            console.log(evt);
+            setUserPassword(evt.target.value);
           }}
         />
+        <div
+          className="block"
+          onClick={() => {
+            validateLogin(true);
+          }}
+        >
+          Enter
+        </div>
       </div>
     </div>
   );

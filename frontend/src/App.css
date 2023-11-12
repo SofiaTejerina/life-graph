@@ -39,7 +39,14 @@
   box-shadow: 2px 2px;
 }
 
+/* To change the color wher the cursor pass over */
 .block:hover {
   border-radius: 7px;
   background: rgb(227, 227, 227);
+}
+
+/* To animate when it is clicked */
+.block:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px black;
 }
