@@ -1,15 +1,19 @@
 import { useContext, useState } from "react";
 import "./login.css";
 import { AuthContext } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const { setIsUserLogged } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const validateLogin = () => {
     if (userName.length > 0 && userPassword.length > 0) {
       setIsUserLogged(true);
+      navigate("/home", { replace: true });
     }
   };
 
