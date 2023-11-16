@@ -127,58 +127,6 @@
         "dragging": false
     },
     {
-        "id": "16",
-        "type": "simpleNode",
-        "position": {
-            "x": 101.118928293625,
-            "y": -265.14248246306147
-        },
-        "data": {
-            "props": {
-                "data": {
-                    "progress": "Progress input78",
-                    "time": "Time input78",
-                    "money": "Money input78"
-                },
-                "title": "New Node78898"
-            }
-        },
-        "width": 145,
-        "height": 36,
-        "selected": false,
-        "positionAbsolute": {
-            "x": 101.118928293625,
-            "y": -265.14248246306147
-        },
-        "dragging": false
-    },
-    {
-        "id": "18",
-        "type": "simpleNode",
-        "position": {
-            "x": 210.73766129191023,
-            "y": -295.7573463521983
-        },
-        "data": {
-            "props": {
-                "title": "New Node",
-                "data": {
-                    "progress": "Progress input",
-                    "time": "Time input",
-                    "money": "Money input"
-                }
-            }
-        },
-        "width": 101,
-        "height": 36,
-        "selected": false,
-        "positionAbsolute": {
-            "x": 210.73766129191023,
-            "y": -295.7573463521983
-        },
-        "dragging": false
-    },
-    {
         "id": "20",
         "type": "groupNode",
         "position": {
@@ -325,6 +273,133 @@
         "positionAbsolute": {
             "x": 363.3559149777646,
             "y": -277.79726743436754
+        },
+        "dragging": false
+    },
+    {
+        "id": "24",
+        "type": "groupNode",
+        "position": {
+            "x": 114.79357277386367,
+            "y": -421.76785885116294
+        },
+        "data": {
+            "props": {
+                "title": "Group Node",
+                "data": [
+                    {
+                        "id": "16",
+                        "type": "simpleNode",
+                        "position": {
+                            "x": 103.1239172296385,
+                            "y": -283.1873828871826
+                        },
+                        "data": {
+                            "props": {
+                                "data": {
+                                    "progress": "Progress input78",
+                                    "time": "Time input78",
+                                    "money": "Money input78"
+                                },
+                                "title": "New Node78898"
+                            }
+                        },
+                        "width": 147,
+                        "height": 38,
+                        "selected": true,
+                        "positionAbsolute": {
+                            "x": 103.1239172296385,
+                            "y": -283.1873828871826
+                        },
+                        "dragging": false
+                    },
+                    {
+                        "id": "18",
+                        "type": "simpleNode",
+                        "position": {
+                            "x": 208.73267235589674,
+                            "y": -230.26104110909208
+                        },
+                        "data": {
+                            "props": {
+                                "title": "New Node",
+                                "data": {
+                                    "progress": "Progress input",
+                                    "time": "Time input",
+                                    "money": "Money input"
+                                }
+                            }
+                        },
+                        "width": 103,
+                        "height": 38,
+                        "selected": true,
+                        "positionAbsolute": {
+                            "x": 208.73267235589674,
+                            "y": -230.26104110909208
+                        },
+                        "dragging": false
+                    },
+                    {
+                        "id": "22",
+                        "type": "simpleNode",
+                        "position": {
+                            "x": 240.35523570353138,
+                            "y": -189.3112406943851
+                        },
+                        "data": {
+                            "props": {
+                                "title": "New Node",
+                                "data": {
+                                    "progress": "Progress input",
+                                    "time": "Time input",
+                                    "money": "Money input"
+                                }
+                            }
+                        },
+                        "width": 103,
+                        "height": 38,
+                        "selected": true,
+                        "positionAbsolute": {
+                            "x": 393.36044252233125,
+                            "y": -396.6625359750876
+                        },
+                        "dragging": false
+                    },
+                    {
+                        "id": "23",
+                        "type": "simpleNode",
+                        "position": {
+                            "x": 187.208329231577,
+                            "y": -170.04548709830163
+                        },
+                        "data": {
+                            "props": {
+                                "title": "New Node",
+                                "data": {
+                                    "progress": "Progress input",
+                                    "time": "Time input",
+                                    "money": "Money input"
+                                }
+                            }
+                        },
+                        "width": 103,
+                        "height": 38,
+                        "selected": true,
+                        "positionAbsolute": {
+                            "x": 393.36044252233125,
+                            "y": -396.6625359750876
+                        },
+                        "dragging": false
+                    }
+                ]
+            }
+        },
+        "width": 185,
+        "height": 278,
+        "selected": true,
+        "positionAbsolute": {
+            "x": 114.79357277386367,
+            "y": -421.76785885116294
         },
         "dragging": false
     }
