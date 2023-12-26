@@ -1,0 +1,21 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdate_N_E"]("app/layout",{
+
+/***/ "(app-pages-browser)/../node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%2FUsers%2Fstejerina%2FDocuments%2FProyectos%2Freact-projects%2Flife-graph%2Ffrontend2%2Fapp%2Fui%2Fstyles%2Fglobal.module.css&modules=%2FUsers%2Fstejerina%2FDocuments%2FProyectos%2Freact-projects%2Flife-graph%2Ffrontend2%2Fapp%2Fui%2Fstyles%2Flogin.css&server=false!":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ../node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%2FUsers%2Fstejerina%2FDocuments%2FProyectos%2Freact-projects%2Flife-graph%2Ffrontend2%2Fapp%2Fui%2Fstyles%2Fglobal.module.css&modules=%2FUsers%2Fstejerina%2FDocuments%2FProyectos%2Freact-projects%2Flife-graph%2Ffrontend2%2Fapp%2Fui%2Fstyles%2Flogin.css&server=false! ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ (function(__unused_webpack_module, __unused_webpack_exports, __webpack_require__) {
+
+eval(__webpack_require__.ts("Promise.resolve(/*! import() eager */).then(__webpack_require__.t.bind(__webpack_require__, /*! ./app/ui/styles/global.module.css */ \"(app-pages-browser)/./app/ui/styles/global.module.css\", 23));\nPromise.resolve(/*! import() eager */).then(__webpack_require__.bind(__webpack_require__, /*! ./app/ui/styles/login.css */ \"(app-pages-browser)/./app/ui/styles/login.css\"))//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1wYWdlcy1icm93c2VyKS8uLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2J1aWxkL3dlYnBhY2svbG9hZGVycy9uZXh0LWZsaWdodC1jbGllbnQtZW50cnktbG9hZGVyLmpzP21vZHVsZXM9JTJGVXNlcnMlMkZzdGVqZXJpbmElMkZEb2N1bWVudHMlMkZQcm95ZWN0b3MlMkZyZWFjdC1wcm9qZWN0cyUyRmxpZmUtZ3JhcGglMkZmcm9udGVuZDIlMkZhcHAlMkZ1aSUyRnN0eWxlcyUyRmdsb2JhbC5tb2R1bGUuY3NzJm1vZHVsZXM9JTJGVXNlcnMlMkZzdGVqZXJpbmElMkZEb2N1bWVudHMlMkZQcm95ZWN0b3MlMkZyZWFjdC1wcm9qZWN0cyUyRmxpZmUtZ3JhcGglMkZmcm9udGVuZDIlMkZhcHAlMkZ1aSUyRnN0eWxlcyUyRmxvZ2luLmNzcyZzZXJ2ZXI9ZmFsc2UhIiwibWFwcGluZ3MiOiJBQUFBLGtNQUE2STtBQUM3SSIsInNvdXJjZXMiOlsid2VicGFjazovL19OX0UvP2Q4NzciXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0KC8qIHdlYnBhY2tNb2RlOiBcImVhZ2VyXCIgKi8gXCIvVXNlcnMvc3RlamVyaW5hL0RvY3VtZW50cy9Qcm95ZWN0b3MvcmVhY3QtcHJvamVjdHMvbGlmZS1ncmFwaC9mcm9udGVuZDIvYXBwL3VpL3N0eWxlcy9nbG9iYWwubW9kdWxlLmNzc1wiKTtcbmltcG9ydCgvKiB3ZWJwYWNrTW9kZTogXCJlYWdlclwiICovIFwiL1VzZXJzL3N0ZWplcmluYS9Eb2N1bWVudHMvUHJveWVjdG9zL3JlYWN0LXByb2plY3RzL2xpZmUtZ3JhcGgvZnJvbnRlbmQyL2FwcC91aS9zdHlsZXMvbG9naW4uY3NzXCIpIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(app-pages-browser)/../node_modules/next/dist/build/webpack/loaders/next-flight-client-entry-loader.js?modules=%2FUsers%2Fstejerina%2FDocuments%2FProyectos%2Freact-projects%2Flife-graph%2Ffrontend2%2Fapp%2Fui%2Fstyles%2Fglobal.module.css&modules=%2FUsers%2Fstejerina%2FDocuments%2FProyectos%2Freact-projects%2Flife-graph%2Ffrontend2%2Fapp%2Fui%2Fstyles%2Flogin.css&server=false!\n"));
+
+/***/ })
+
+});
