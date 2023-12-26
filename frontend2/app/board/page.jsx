@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useEdgesState, useNodesState } from "reactflow";
 import axios from "axios";
 import generalStyles from "../ui/styles/global.module.css";
+import mainStyles from "../ui/styles/main.module.css";
 
 import GoalSideBar from "../ui/goal-dashboard/GoalSideBar";
 import { GoalContext } from "../lib/contexts/GoalGontext";
@@ -69,7 +70,7 @@ function MainBoardPage() {
       }}
     >
       <GoalContext.Provider value={{ currentGoal, setCurrentGoal }}>
-        <div id="root">
+        <div className={mainStyles.root}>
           {isSaving && (
             <div className={generalStyles.informative_snackbar}>Saving ...</div>
           )}
