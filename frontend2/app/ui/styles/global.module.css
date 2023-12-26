@@ -1,4 +1,4 @@
-.left-side-component {
+.left_side_component {
   width: 30%;
   height: 100%;
   float: left;
@@ -9,13 +9,13 @@
   border-top: 0px;
 }
 
-.right-side-component {
+.right_side_component {
   float: left;
   width: 69%;
   height: 100%;
 }
 
-.informative-snackbar {
+.informative_snackbar {
   width: 100%;
   padding: 15px;
   text-align: center;

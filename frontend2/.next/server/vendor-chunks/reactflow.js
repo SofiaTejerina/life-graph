@@ -11,13 +11,13 @@ exports.id = "vendor-chunks/reactflow";
 exports.ids = ["vendor-chunks/reactflow"];
 exports.modules = {
 
-/***/ "(ssr)/../node_modules/reactflow/dist/style.css":
+/***/ "(rsc)/../node_modules/reactflow/dist/style.css":
 /*!************************************************!*\
   !*** ../node_modules/reactflow/dist/style.css ***!
   \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (\"75b10b45c3a6\");\nif (false) {}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi4vbm9kZV9tb2R1bGVzL3JlYWN0Zmxvdy9kaXN0L3N0eWxlLmNzcyIsIm1hcHBpbmdzIjoiOzs7O0FBQUEsaUVBQWUsY0FBYztBQUM3QixJQUFJLEtBQVUsRUFBRSxFQUF1QiIsInNvdXJjZXMiOlsid2VicGFjazovL0BsaWZlLWdyYXBoL2Zyb250ZW5kMi8uLi9ub2RlX21vZHVsZXMvcmVhY3RmbG93L2Rpc3Qvc3R5bGUuY3NzP2U4ZmMiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQgXCI3NWIxMGI0NWMzYTZcIlxuaWYgKG1vZHVsZS5ob3QpIHsgbW9kdWxlLmhvdC5hY2NlcHQoKSB9XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(ssr)/../node_modules/reactflow/dist/style.css\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (\"75b10b45c3a6\");\nif (false) {}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi4vbm9kZV9tb2R1bGVzL3JlYWN0Zmxvdy9kaXN0L3N0eWxlLmNzcyIsIm1hcHBpbmdzIjoiOzs7O0FBQUEsaUVBQWUsY0FBYztBQUM3QixJQUFJLEtBQVUsRUFBRSxFQUF1QiIsInNvdXJjZXMiOlsid2VicGFjazovL0BsaWZlLWdyYXBoL2Zyb250ZW5kMi8uLi9ub2RlX21vZHVsZXMvcmVhY3RmbG93L2Rpc3Qvc3R5bGUuY3NzPzY0NzAiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQgXCI3NWIxMGI0NWMzYTZcIlxuaWYgKG1vZHVsZS5ob3QpIHsgbW9kdWxlLmhvdC5hY2NlcHQoKSB9XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(rsc)/../node_modules/reactflow/dist/style.css\n");
 
 /***/ })
 

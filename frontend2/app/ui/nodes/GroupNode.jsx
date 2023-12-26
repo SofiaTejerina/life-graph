@@ -4,6 +4,8 @@ import { GoalContext } from "../../lib/contexts/GoalGontext";
 import { useContext } from "react";
 import { InformationContext } from "../../lib/contexts/InformationContext";
 
+import baseNodeStyles from "../styles/baseNode.module.css";
+
 const GroupNode = ({
   id,
   data = { title: "No funciono" },
@@ -16,7 +18,9 @@ const GroupNode = ({
   return (
     <div
       className={
-        selectedNodes.includes(id) ? "simple-selected-node" : "simple-node"
+        selectedNodes.includes(id)
+          ? baseNodeStyles.simple_selected_node
+          : baseNodeStyles.simple_node
       }
       onClick={() => {
         setCurrentGoal({ ...data, id, type });
@@ -29,10 +33,10 @@ const GroupNode = ({
         isConnectable={isConnectable}
       />
       <p>{data.props.title}</p>
-      <ul className="group-list">
+      <ul className={baseNodeStyles.group_list}>
         {data.props.data.map((goal) => {
           return (
-            <li className="item-list" key={goal.id}>
+            <li className={baseNodeStyles.item_list} key={goal.id}>
               <SimpleNode id={id} data={{ ...goal.data }} />
             </li>
           );

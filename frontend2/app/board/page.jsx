@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useEdgesState, useNodesState } from "reactflow";
 import axios from "axios";
+import generalStyles from "../ui/styles/global.module.css";
 
 import GoalSideBar from "../ui/goal-dashboard/GoalSideBar";
 import { GoalContext } from "../lib/contexts/GoalGontext";
@@ -69,10 +70,12 @@ function MainBoardPage() {
     >
       <GoalContext.Provider value={{ currentGoal, setCurrentGoal }}>
         <div id="root">
-          {isSaving && <div className="informative-snackbar">Saving ...</div>}
-          <div className="left-side-component">
+          {isSaving && (
+            <div className={generalStyles.informative_snackbar}>Saving ...</div>
+          )}
+          <div className={generalStyles.left_side_component}>
             <div
-              className="block"
+              className={generalStyles.block}
               onClick={async () => await onSave(nodes, edges)}
             >
               Save
@@ -80,7 +83,7 @@ function MainBoardPage() {
             <GoalSideBar />
           </div>
           <div
-            className="right-side-component"
+            className={generalStyles.right_side_component}
             onContextMenu={(e) => {
               // prevent the default behaviour when right clicked
               e.preventDefault();

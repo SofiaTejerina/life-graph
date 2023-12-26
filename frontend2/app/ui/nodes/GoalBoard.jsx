@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useCallback, useContext, useRef, useState } from "react";
 import ReactFlow, {
   addEdge,
   Background,
@@ -14,9 +8,7 @@ import ReactFlow, {
   useOnSelectionChange,
   useReactFlow,
 } from "reactflow";
-import "reactflow/dist/style.css";
 
-import "../styles/baseNode.css";
 import SimpleNode from "./SimpleNode";
 import GroupNode from "./GroupNode";
 

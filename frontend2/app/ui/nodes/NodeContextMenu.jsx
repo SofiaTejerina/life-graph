@@ -1,4 +1,4 @@
-import "../styles/nodecontextMenu.css";
+import nodeContextMenuStyles from "../styles/nodeContextMenu.module.css";
 
 const NodeContextMenu = ({
   verticalPosition,
@@ -7,13 +7,16 @@ const NodeContextMenu = ({
 }) => {
   return (
     <div
-      className="external-container"
+      className={nodeContextMenuStyles.external_container}
       style={{
         top: verticalPosition,
         left: horizontalPosition,
       }}
     >
-      <p className="option-item box" onClick={onCreateGroupNodeClick}>
+      <p
+        className={`${nodeContextMenuStyles.option_item} ${nodeContextMenuStyles.box}`}
+        onClick={onCreateGroupNodeClick}
+      >
         Agrupar nodos
       </p>
     </div>
