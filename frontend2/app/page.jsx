@@ -1,7 +1,11 @@
 "use client";
 
-import Login from "./login/page";
+import { redirect } from "next/navigation";
 
 export default function Page() {
-  return <Login />;
+  if (localStorage.getItem("token")) {
+    redirect("/board");
+  } else {
+    redirect("/login");
+  }
 }
