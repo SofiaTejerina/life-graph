@@ -221,7 +221,7 @@ const GoalBoard = () => {
   ]);
 
   return (
-    <div id="root" ref={reactFlowWrapper}>
+    <div id="root" ref={reactFlowWrapper} style={{ width: "100%", height: "100vh"}}>
       {!nodes?.loading && !edges?.loading && (
         <ReactFlow
           nodes={nodes}
