@@ -21,7 +21,7 @@ const GoalSideBar = () => {
               data: newData,
               title: newTitle,
             };
-            // update the current node in order tu vizualize the right data
+            // update the current node in order to visualize the right data
             setCurrentGoal({
               ...node.data.props,
               id: node.id,
@@ -46,7 +46,7 @@ const GoalSideBar = () => {
                   data: newData,
                   title: newTitle,
                 };
-                // update the current node in order tu vizualize the right data
+                // update the current node in order to visualize the right data
                 setCurrentGoal({ ...node.data, id: node.id, type: node.type });
               }
             });

@@ -80,7 +80,7 @@ function MainBoardPage() {
           <div
             className="right-side-component"
             onContextMenu={(e) => {
-              // prevent the default behaviour when right clicked
+              // prevent the default behaviour when right-clicked
               e.preventDefault();
             }}
           >

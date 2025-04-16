@@ -1,7 +1,6 @@
-import React, {
+import {
   useCallback,
   useContext,
-  useEffect,
   useRef,
   useState,
 } from "react";
@@ -169,7 +168,7 @@ const GoalBoard = () => {
     [project, nextID]
   );
 
-  // save wich nodes are beening selected
+  // save which nodes are selected
   useOnSelectionChange({
     onChange: ({ nodes }) => {
       setSelectedNodes(nodes.map((node) => node.id));
