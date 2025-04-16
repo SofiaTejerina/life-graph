@@ -32,6 +32,15 @@ function MainBoardPage() {
       .get("/nodes/next-id")
       .then((response) => setNextID(response.data.nextID));
     client.get("/edges").then((response) => setEdges(response.data));
+
+      document.addEventListener("keydown", async (e) => {
+          if ((e.ctrlKey || e.metaKey) && e.key === "s") {
+              // Prevent the Save dialog to open
+              e.preventDefault();
+
+              await onSave(nodes, edges);
+          }
+      });
   }, []);
 
   const [isSaving, setSaving] = useState(false);
@@ -44,15 +53,6 @@ function MainBoardPage() {
       setSaving(false);
     }, 1000);
   };
-
-  document.addEventListener("keydown", async (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key === "s") {
-      // Prevent the Save dialog to open
-      e.preventDefault();
-
-      await onSave(nodes, edges);
-    }
-  });
 
   return (
     <InformationContext.Provider
