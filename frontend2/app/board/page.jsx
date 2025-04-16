@@ -86,7 +86,7 @@ function MainBoardPage() {
           <div
             className={generalStyles.right_side_component}
             onContextMenu={(e) => {
-              // prevent the default behaviour when right clicked
+              // prevent the default behaviour when right-clicked
               e.preventDefault();
             }}
           >
