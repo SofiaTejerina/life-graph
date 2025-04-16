@@ -12,3 +12,7 @@ yarn run backend
 Migrate JSON structure to [JSON Canvas](https://news.ycombinator.com/item?id=39670922)
 
 ### Project WIP:
+
+
+https://github.com/user-attachments/assets/feaededf-582a-407d-8915-e83934320473
+
